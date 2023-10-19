@@ -1,0 +1,12 @@
+.main{
+    display: flex;
+    margin-bottom: 15px;
+   
+}
+.blog{
+    background-color: white;
+    width: 100%;
+    margin-left: 15px;
+    border-radius: 10px;
+    padding: 15px;
+}

@@ -1,0 +1,17 @@
+.tree-block{
+    text-align: center;
+    width: 300px;
+    background-color: #FFFFFF;
+    border-radius: 10px ;
+    height: 500px;
+}
+.active{
+    background-color: #4f41bc3f;
+    color: #5041BC;
+    border-radius: 5px;
+}
+.title{
+    font-size: 18px;
+    padding: 10px;
+    margin: 10px;
+}
