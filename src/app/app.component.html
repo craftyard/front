@@ -14,13 +14,13 @@
   class="example-container"
   autosize
 >
-  <mat-drawer #drawer class="example-sidenav" mode="over">
-    <app-tree></app-tree>
+  <mat-drawer #drawer class="example-sidenav" mode="over" >
+    <app-tree class="tree"></app-tree>
+    <app-header-auth class="login"></app-header-auth>
   </mat-drawer>
 
-  <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle sidenav
-    </button>
+  <div class="example-sidenav-content container">
+    <app-header (click)="drawer.toggle()"></app-header>
+    <router-outlet > </router-outlet>
   </div>
 </mat-drawer-container>

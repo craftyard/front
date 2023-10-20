@@ -7,8 +7,17 @@
 .logo{
     width: 70px;
 }
+.header-logo{
+    display: flex;
+    align-items: end;
+}
 .header-item{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+@media (max-width: 769px) {
+    app-header-auth{
+        display:none;
+    }
 }

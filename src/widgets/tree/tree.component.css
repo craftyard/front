@@ -3,7 +3,7 @@
     width: 250px;
     background-color: #FFFFFF;
     border-radius: 10px ;
-    height: 500px;
+    height: 100%;
 }
 .active{
     background-color: #4f41bc3f;
@@ -14,4 +14,9 @@
     font-size: 18px;
     padding: 10px;
     margin: 10px;
+}
+@media (max-width: 769px) {
+    .tree-block {
+        height: 90%;
+    }
 }

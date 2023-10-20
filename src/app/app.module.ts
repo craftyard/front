@@ -10,6 +10,9 @@ import { MatListModule } from '@angular/material/list';
 import { WorkshopComponent } from '../pages/workshop/workshop.component';
 import { ToolsPageComponent } from '../pages/tools-page/tools-page.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { HeaderAuthComponent } from 'widgets/header/header-auth/header-auth.component';
+
+
 
 
 @NgModule({
@@ -19,7 +22,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     TreeComponent,
     WorkshopComponent,
     ToolsPageComponent,
-
+    HeaderAuthComponent,
   ],
   imports: [
     BrowserModule,

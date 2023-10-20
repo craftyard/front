@@ -6,8 +6,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'workshop';
-  showFiller = false;
+ 
   ngOnInit(): void {
     console.log('hello');
   }
@@ -23,6 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   private updateShouldShowElement(): void {
-    this.shouldShowElement = window.innerWidth > 768; // Пример условия
+    this.shouldShowElement = window.innerWidth > 768;
   }
+
 }
