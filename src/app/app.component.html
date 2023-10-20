@@ -1,10 +1,26 @@
-<app-header></app-header>
-<div class="container">
+<div *ngIf="shouldShowElement">
+  <app-header></app-header>
+  <div class="container">
     <div class="main">
-        <app-tree></app-tree>
-        <div class="blog">
-            <router-outlet >
-            </router-outlet>
-        </div>
+      <app-tree></app-tree>
+      <div class="blog">
+        <router-outlet> </router-outlet>
+      </div>
     </div>
+  </div>
 </div>
+<mat-drawer-container
+  *ngIf="!shouldShowElement"
+  class="example-container"
+  autosize
+>
+  <mat-drawer #drawer class="example-sidenav" mode="over">
+    <app-tree></app-tree>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>
+</mat-drawer-container>
