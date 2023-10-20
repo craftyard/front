@@ -9,6 +9,8 @@
     </div>
   </div>
 </div>
+
+<!-- Снизу код для мобильного приложения. -->
 <mat-drawer-container
   *ngIf="!shouldShowElement"
   class="example-container"
@@ -20,7 +22,14 @@
   </mat-drawer>
 
   <div class="example-sidenav-content container">
-    <app-header (click)="drawer.toggle()"></app-header>
-    <router-outlet > </router-outlet>
+    <div class="mobile-menu">
+      <div>
+        <button (click)="drawer.toggle()" mat-icon-button class="example-icon" >
+            <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <app-header></app-header>
+    </div>
+    <router-outlet> </router-outlet>
   </div>
 </mat-drawer-container>

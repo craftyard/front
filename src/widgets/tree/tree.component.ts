@@ -9,6 +9,5 @@ import { Component } from '@angular/core';
 export class TreeComponent {
    menuItem = [
     {title:'мастерская', routerLink: '/workshop'},
-    {title:'комнаты', routerLink: '/tools'},
    ]
 }

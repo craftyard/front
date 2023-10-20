@@ -1,0 +1,8 @@
+@media (max-width:769px) {
+    .bg{
+        background-color: white; 
+        margin-top: 15px;
+        padding: 15px;
+        border-radius: 15px;
+     }
+}

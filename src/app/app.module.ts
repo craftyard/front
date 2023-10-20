@@ -8,9 +8,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { TreeComponent } from '../widgets/tree/tree.component';
 import { MatListModule } from '@angular/material/list';
 import { WorkshopComponent } from '../pages/workshop/workshop.component';
-import { ToolsPageComponent } from '../pages/tools-page/tools-page.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { HeaderAuthComponent } from 'widgets/header/header-auth/header-auth.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -21,7 +21,6 @@ import { HeaderAuthComponent } from 'widgets/header/header-auth/header-auth.comp
     HeaderComponent,
     TreeComponent,
     WorkshopComponent,
-    ToolsPageComponent,
     HeaderAuthComponent,
   ],
   imports: [
@@ -30,7 +29,8 @@ import { HeaderAuthComponent } from 'widgets/header/header-auth/header-auth.comp
     BrowserAnimationsModule,
     MatButtonModule,
     MatListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],
