@@ -4,7 +4,6 @@ import { WorkshopComponent } from 'pages/workshop/workshop.component';
 const routes: Routes = [
   { path: 'workshop', component: WorkshopComponent },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
