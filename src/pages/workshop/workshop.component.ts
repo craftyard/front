@@ -1,12 +1,12 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppState } from 'features/service/AppState.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-workshop',
+  templateUrl: './workshop.component.html',
+  styleUrls: ['./workshop.component.css']
 })
-export class AppComponent implements OnInit {
+export class WorkshopComponent implements OnInit {
 
   AppMode: 'mobile' | 'browser' = 'browser'; 
   
@@ -16,5 +16,5 @@ export class AppComponent implements OnInit {
       this.AppMode = Show;
     });
   }
-
 }
+2

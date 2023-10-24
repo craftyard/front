@@ -1,0 +1,13 @@
+<div class="tree-block">
+  <mat-list role="list">
+    <mat-list-item matListItemTitle *ngFor="let menu of menuItem">
+      <p
+        class="menu-title"
+        [routerLink]="menu.routerLink"
+        routerLinkActive="active"
+      >
+        {{ menu.title | titlecase }}
+      </p>
+    </mat-list-item>
+  </mat-list>
+</div>
