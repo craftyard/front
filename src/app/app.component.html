@@ -1,4 +1,4 @@
-<div *ngIf="shouldShowElement">
+<div *ngIf="AppMode === 'browser'">
   <app-header></app-header>
   <div class="container">
     <div class="main">
@@ -12,7 +12,7 @@
 
 <!-- Снизу код для мобильного приложения. -->
 <mat-drawer-container
-  *ngIf="!shouldShowElement"
+*ngIf="AppMode === 'mobile'"
   class="example-container"
   autosize
 >

@@ -1,1 +1,4 @@
-<div class="bg">Workshop</div>
+<div class="bg">Workshop
+    <div *ngIf="AppMode === 'browser'">Browser</div>
+    <div *ngIf="AppMode === 'mobile'">Mobile</div>
+</div>

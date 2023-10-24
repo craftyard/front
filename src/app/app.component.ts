@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { AppState } from 'features/service/AppState.service';
 
 @Component({
   selector: 'app-root',
@@ -7,22 +8,13 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  AppMode: 'mobile' | 'browser' = 'browser'; 
+  
+  constructor(private resizeService: AppState) {}
   ngOnInit(): void {
-    console.log('hello');
-  }
-  shouldShowElement: boolean = false;
-
-  constructor() {
-    this.updateShouldShowElement();
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event): void {
-    this.updateShouldShowElement();
-  }
-
-  private updateShouldShowElement(): void {
-    this.shouldShowElement = window.innerWidth > 768;
+    this.resizeService.appMode.subscribe((Show) => {
+      this.AppMode = Show;
+    });
   }
 
 }
