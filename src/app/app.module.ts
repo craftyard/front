@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppHeader } from 'features/header/header.component';
 import { TreeComponent } from 'features/tree/tree.component';
@@ -10,15 +8,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import {AppState} from "../features/service/AppState.service"
-
+import { AppHeaderAut } from 'features/header/header-aut-profile/header-aut.component';
+import { AppState } from '../features/service/AppState.service';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppHeader,
     TreeComponent,
-    WorkshopComponent
+    WorkshopComponent,
+    AppHeaderAut,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,7 @@ import {AppState} from "../features/service/AppState.service"
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
   ],
   providers: [AppState],
   bootstrap: [AppComponent],

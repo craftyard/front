@@ -12,7 +12,7 @@
   align-items: center;
 }
 @media (max-width: 769px) {
-  app-header-auth{
+  app-header-aut-profile{
       display:none;
   }
 }
