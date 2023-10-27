@@ -6,26 +6,26 @@
 app-header-auth{
 text-align: center;
 }
-.blog{
+.page-content{
 background-color: white;
   width: 100%;
   margin-left: 15px;
   border-radius: 10px;
   padding: 15px;
 }
-.example-container {
+.page-container {
 width: 100%;
 height: 100%;
 }
 
-.example-sidenav-content{
+.sidenav-content{
 background-color: #f1f0f0;
 }
 
-.example-sidenav {
+.sidenav {
 padding: 20px;
 }
-.mobile-menu {
+#mobile-menu {
 display: flex;
 align-items: center;
 border-bottom: 1px solid #5041BC;

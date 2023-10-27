@@ -1,4 +1,4 @@
-.tree-block{
+#tree-block{
   text-align: center;
   width: 250px;
   background-color: #FFFFFF;
@@ -10,13 +10,13 @@
   color: #5041BC;
   border-radius: 5px;
 }
-.menu-title{
+#menu-title{
   font-size: 18px;
   padding: 10px;
   margin: 10px;
 }
 @media (max-width: 769px) {
-  .tree-block {
+  #tree-block {
       height: 90%;
   }
 }

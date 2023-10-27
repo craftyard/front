@@ -1,20 +1,20 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppState } from 'features/service/AppState.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-component',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  appMode: 'mobile' | 'browser' = 'browser';
 
-  AppMode: 'mobile' | 'browser' = 'browser'; 
-  
-  constructor(private resizeService: AppState) {}
+  // eslint-disable-next-line no-useless-constructor, no-empty-function
+  constructor(private appState: AppState) {}
+
   ngOnInit(): void {
-    this.resizeService.appMode.subscribe((Show) => {
-      this.AppMode = Show;
+    this.appState.appMode$.subscribe((mode) => {
+      this.appMode = mode;
     });
   }
-
 }

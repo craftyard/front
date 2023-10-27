@@ -5,20 +5,20 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class AppState {
-  public appMode = new BehaviorSubject<'mobile' | 'browser'>('browser');
-  
+  public appMode$ = new BehaviorSubject<'mobile' | 'browser'>('browser');
+
   constructor() {
-    this.updateBrowserVersion();
+    this.calculateAppMode();
     this.resizeListener();
   }
 
   private resizeListener(): void {
     window.addEventListener('resize', () => {
-      this.updateBrowserVersion();
+      this.calculateAppMode();
     });
   }
 
-  private updateBrowserVersion(): void {
-    this.appMode.next(window.innerWidth > 768 ? 'browser' : 'mobile');
+  private calculateAppMode(): void {
+    this.appMode$.next(window.innerWidth > 768 ? 'browser' : 'mobile');
   }
 }

@@ -2,19 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { AppState } from 'features/service/AppState.service';
 
 @Component({
-  selector: 'app-workshop',
+  selector: 'workshop',
   templateUrl: './workshop.component.html',
-  styleUrls: ['./workshop.component.css']
+  styleUrls: ['./workshop.component.css'],
 })
 export class WorkshopComponent implements OnInit {
+  appMode: 'mobile' | 'browser' = 'browser';
 
-  AppMode: 'mobile' | 'browser' = 'browser'; 
-  
-  constructor(private resizeService: AppState) {}
+  // eslint-disable-next-line no-empty-function, no-useless-constructor
+  constructor(private appState: AppState) {}
+
   ngOnInit(): void {
-    this.resizeService.appMode.subscribe((Show) => {
-      this.AppMode = Show;
+    this.appState.appMode$.subscribe((mode) => {
+      this.appMode = mode;
     });
   }
 }
-2

@@ -1,12 +1,12 @@
-.header{
+#header{
   padding: 15px 0 15px 0;
 }
 
-.logo{
+#logo{
   width: 70px;
 }
 
-.header-item{
+#header-item{
   display: flex;
   justify-content: space-between;
   align-items: center;
