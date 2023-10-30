@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from 'features/service/AppState.service';
+import { AppState } from '../../model/app-state';
 
 @Component({
   selector: 'app-component',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  templateUrl: './content.html',
+  styleUrls: ['./style.css'],
 })
 export class AppComponent implements OnInit {
   appMode: 'mobile' | 'browser' = 'browser';
