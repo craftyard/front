@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'user-info-entities',
+  selector: 'user-widget',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class UserInfoEntiComponent {
+export class UserWidgetComponent {
 
 }

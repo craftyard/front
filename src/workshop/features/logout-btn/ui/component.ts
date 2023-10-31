@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'user-info-entities',
+  selector: 'logout-button',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class UserInfoEntiComponent {
+export class LogOutFeatComponent {
 
 }
