@@ -12,7 +12,7 @@
   align-items: center;
 }
 @media (max-width: 769px) {
-  user-widget{
+  current-user-widget{
       display:none;
   }
 }

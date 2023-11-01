@@ -7,8 +7,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { WorkshopComponent } from 'workshop/pages/component';
 import { LogOutFeatComponent } from 'workshop/features/logout-btn/ui/component';
-import { UserInfoEntiComponent } from 'workshop/entities/user/ui/component';
-import { UserWidgetComponent } from 'workshop/widgets/user-widget/ui/component';
+import { UserInfoHeaderComponent } from 'workshop/entities/user-header/ui/component';
+import { CurrentUserComponent } from 'workshop/widgets/user-widget/ui/component';
 import { AppHeader } from './ui/app-header/component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppState } from './model/app-state';
@@ -22,8 +22,8 @@ import { AppTreeComponent } from './ui/app-tree/component';
     AppTreeComponent,
     WorkshopComponent,
     LogOutFeatComponent,
-    UserInfoEntiComponent,
-    UserWidgetComponent,
+    UserInfoHeaderComponent,
+    CurrentUserComponent,
   ],
   imports: [
     BrowserModule,

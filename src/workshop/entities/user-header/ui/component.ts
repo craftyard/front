@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'current-user-widget',
+  selector: 'user-info-entities',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class CurrentUserComponent {
+export class UserInfoHeaderComponent {
 
 }
