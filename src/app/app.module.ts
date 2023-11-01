@@ -6,7 +6,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { WorkshopComponent } from 'workshop/pages/component';
-import { LogOutFeatComponent } from 'workshop/features/logout-btn/ui/component';
+import { LogOutComponent } from 'workshop/entities/logout-btn/ui/component';
 import { UserInfoHeaderComponent } from 'workshop/entities/user-header/ui/component';
 import { CurrentUserComponent } from 'workshop/widgets/user-widget/ui/component';
 import { AppHeader } from './ui/app-header/component';
@@ -21,7 +21,7 @@ import { AppTreeComponent } from './ui/app-tree/component';
     AppHeader,
     AppTreeComponent,
     WorkshopComponent,
-    LogOutFeatComponent,
+    LogOutComponent,
     UserInfoHeaderComponent,
     CurrentUserComponent,
   ],

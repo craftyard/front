@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class LogOutFeatComponent {
+export class LogOutComponent {
 
 }
