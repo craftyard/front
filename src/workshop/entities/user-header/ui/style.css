@@ -1,23 +1,11 @@
-#user-profil{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-#user-img{
-    margin-right: 15px ;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: 3px solid #8f83eb;
-}
-#user-data{
-    margin-right: 10px;
-    text-align: center;
+
+#user-profile{
+    margin-right: 15px;
+    text-align: start;
 }
 @media (max-width:769px) {
-    #user-profil{
+    #user-profile{
         padding-bottom: 10px;
-     }
+        text-align: center;
+     }   
   }
