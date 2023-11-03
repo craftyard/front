@@ -1,35 +1,40 @@
-<div *ngIf="appMode === 'browser'">
-  <app-header></app-header>
-  <div class="container">
-    <div class="main">
-      <app-tree></app-tree>
-      <div class="page-content">
-        <router-outlet> </router-outlet>
+<auth-page *ngIf="appUser === undefined"></auth-page>
+
+<div class="page-container" *ngIf="appUser">
+  <div *ngIf="appMode === 'browser'">
+    <app-header></app-header>
+    <div class="container">
+      <div class="main">
+        <app-tree></app-tree>
+        <div class="page-content">
+          <router-outlet> </router-outlet>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- Снизу код для мобильного приложения. -->
-<mat-drawer-container
-*ngIf="appMode === 'mobile'"
+  
+  <!-- Снизу код для мобильного приложения. -->
+  <mat-drawer-container
+  *ngIf="appMode === 'mobile'"
   class="page-container"
-  autosize
->
-  <mat-drawer #drawer class="sidenav" mode="over">
-    <app-tree class="tree"></app-tree>
-    <current-user-widget></current-user-widget> 
-  </mat-drawer>
-
-  <div class="sidenav-content container">
-    <div id="mobile-menu">
-      <div>
-        <button (click)="drawer.toggle()" mat-icon-button >
-          <mat-icon>menu</mat-icon>
-        </button>
+   autosize
+  >
+    <mat-drawer #drawer class="sidenav" mode="over">
+      <app-tree class="tree"></app-tree>
+      <current-user-widget></current-user-widget> 
+    </mat-drawer>
+  
+    <div class="sidenav-content container">
+      <div id="mobile-menu">
+        <div>
+          <button (click)="drawer.toggle()" mat-icon-button >
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+        <app-header></app-header>
       </div>
-      <app-header></app-header>
+      <router-outlet> </router-outlet>
     </div>
-    <router-outlet> </router-outlet>
-  </div>
-</mat-drawer-container>
+  </mat-drawer-container>
+  
+</div>

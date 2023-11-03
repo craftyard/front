@@ -9,6 +9,8 @@ import { WorkshopComponent } from 'workshop/pages/component';
 import { LogOutComponent } from 'workshop/entities/logout-btn/ui/component';
 import { CurrentUserComponent } from 'workshop/entities/user-header/ui/component';
 import { CurrentUserWidget } from 'workshop/widgets/user-widget/ui/component';
+import { TelegramLoginWidgetComponent } from 'workshop/features/login/ui/component';
+import { AuthPageComponent } from 'workshop/pages/auth/ui/component';
 import { AppHeader } from './ui/app-header/component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppState } from './model/app-state';
@@ -24,6 +26,8 @@ import { AppTreeComponent } from './ui/app-tree/component';
     LogOutComponent,
     CurrentUserComponent,
     CurrentUserWidget,
+    TelegramLoginWidgetComponent,
+    AuthPageComponent,
   ],
   imports: [
     BrowserModule,
