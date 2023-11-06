@@ -1,9 +1,9 @@
 <div *ngIf="appMode === 'browser'">
   <app-header></app-header>
   <div class="container">
-    <div class="main">
+    <div id="main">
       <app-tree></app-tree>
-      <div class="page-content">
+      <div id="page-content">
         <router-outlet> </router-outlet>
       </div>
     </div>
@@ -13,11 +13,11 @@
 <!-- Снизу код для мобильного приложения. -->
 <mat-drawer-container
 *ngIf="appMode === 'mobile'"
-  class="page-container"
+  id="page-container"
   autosize
 >
   <mat-drawer #drawer class="sidenav" mode="over">
-    <app-tree class="tree"></app-tree>
+    <app-tree></app-tree>
     <current-user-widget></current-user-widget> 
   </mat-drawer>
 

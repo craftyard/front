@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from '../../model/app-state';
+import { AppState } from '@app/model/app-state';
 
 @Component({
   selector: 'app-component',

@@ -6,14 +6,14 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { WorkshopComponent } from 'workshop/pages/component';
-import { LogOutComponent } from 'workshop/entities/logout-btn/ui/component';
-import { CurrentUserComponent } from 'workshop/entities/user-header/ui/component';
-import { CurrentUserWidget } from 'workshop/widgets/user-widget/ui/component';
-import { AppHeader } from './ui/app-header/component';
+import { LogOutComponent } from 'app/entities/logout-btn/ui/component';
+import { CurrentUserComponent } from 'app/entities/current-user/ui/component';
+import { CurrentUserWidget } from 'app/widgets/user-widget/ui/component';
 import { AppRoutingModule } from './app-routing.module';
+import { AppHeader } from './entities/app-header/component';
+import { AppComponent } from './widgets/app/component';
+import { AppTreeComponent } from './entities/app-tree/component';
 import { AppState } from './model/app-state';
-import { AppComponent } from './ui/app/component';
-import { AppTreeComponent } from './ui/app-tree/component';
 
 @NgModule({
   declarations: [
