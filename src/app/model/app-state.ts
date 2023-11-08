@@ -13,6 +13,7 @@ export class AppState {
   constructor() {
     this.calculateAppMode();
     this.resizeListener();
+    this.loadUser();
   }
 
   private resizeListener(): void {
@@ -26,7 +27,19 @@ export class AppState {
   }
 
   public setUser(user: User): void {
-    this.appUser$.next(user || undefined);
-    console.log(this.appUser$);
+    this.appUser$.next(user);
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  private loadUser(): void {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      const user = JSON.parse(userData);
+      this.appUser$.next(user);
+    }
+  }
+  public removeUser(): void {
+    this.appUser$.next(undefined);
+    localStorage.removeItem('user');
   }
 }

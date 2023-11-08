@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppState } from 'app/model/app-state';
 
 @Component({
   selector: 'logout-button',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class LogOutComponent {
 
+  constructor(private appState: AppState) { }
+  logOut() {
+    this.appState.removeUser()
+  }
 }
