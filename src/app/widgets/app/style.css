@@ -38,8 +38,9 @@ app-header{
   display: flex;
   align-items: center;
   justify-content: center;
-
-
+}
+#userItems{
+  display: block;
 }
 }
 .mat-drawer-container{

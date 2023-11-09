@@ -2,10 +2,10 @@ import {
   AfterContentInit, Component, ElementRef, NgZone, ViewChild,
 } from '@angular/core';
 import { AppState } from 'app/model/app-state';
-import { User } from '../model/type';
+import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data//user/user-authentification.a-params';
 
 @Component({
-  selector: 'app-telegram-login-widget',
+  selector: 'app-telegram-login-btn',
   template: `
     <div #script>
       <ng-content></ng-content>
@@ -16,7 +16,7 @@ export class TelegramLoginWidgetComponent implements AfterContentInit {
   @ViewChild('script', { static: true }) script!: ElementRef;
 
   constructor(private ngZone: NgZone, private appstate: AppState) {
-    (window as any).onTelegramAuth = (user: User) => {
+    (window as any).onTelegramAuth = (user: TelegramAuthDTO) => {
       this.ngZone.run(() => {
         this.appstate.setUser(user);
         console.log('hello');
@@ -30,7 +30,6 @@ export class TelegramLoginWidgetComponent implements AfterContentInit {
     script.src = 'https://telegram.org/js/telegram-widget.js?5';
     script.setAttribute('data-telegram-login', 'rennat_bot');
     script.setAttribute('data-size', 'large');
-    // Callback function in global scope
     script.setAttribute('data-onauth', 'onTelegramAuth(user)');
     script.setAttribute('data-request-access', 'write');
     element.parentElement.replaceChild(script, element);

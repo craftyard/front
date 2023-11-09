@@ -7,9 +7,9 @@ import { AppState } from 'app/model/app-state';
   styleUrls: ['./style.css'],
 })
 export class LogOutComponent {
-
   constructor(private appState: AppState) { }
+
   logOut() {
-    this.appState.removeUser()
+    this.appState.removeUser();
   }
 }

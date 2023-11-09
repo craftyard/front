@@ -6,7 +6,7 @@ import { AppState } from 'app/model/app-state';
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class WorkshopComponent implements OnInit {
+export class WorkshopPage implements OnInit {
   appMode: 'mobile' | 'browser' = 'browser';
 
   // eslint-disable-next-line no-empty-function, no-useless-constructor

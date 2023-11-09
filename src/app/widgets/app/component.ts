@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'workshop/features/login/model/type';
-import { AppState } from '../../model/app-state';
+import { AppState } from 'app/model/app-state';
+import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data/user/user-authentification.a-params';
 
 @Component({
   selector: 'app-component',
@@ -10,7 +10,7 @@ import { AppState } from '../../model/app-state';
 export class AppComponent implements OnInit {
   appMode: 'mobile' | 'browser' = 'browser';
 
-  appUser: User | undefined = undefined;
+  appUser: TelegramAuthDTO | undefined = undefined;
 
   // eslint-disable-next-line no-useless-constructor, no-empty-function
   constructor(private appState: AppState) {

@@ -21,7 +21,10 @@
   >
     <mat-drawer #drawer class="sidenav" mode="over">
       <app-tree class="tree"></app-tree>
-      <current-user-widget></current-user-widget> 
+      <div id="userItems">
+        <current-user></current-user>
+        <logout-button></logout-button>
+    </div>
     </mat-drawer>
   
     <div class="sidenav-content container">

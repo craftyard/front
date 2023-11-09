@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AppState } from 'app/model/app-state';
-import { User } from 'workshop/features/login/model/type';
+import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data/user/user-authentification.a-params';
 
 @Component({
   selector: 'current-user',
@@ -8,7 +8,7 @@ import { User } from 'workshop/features/login/model/type';
   styleUrls: ['./style.css'],
 })
 export class CurrentUserComponent {
-  appUser: User | undefined = undefined;
+  appUser: TelegramAuthDTO | undefined = undefined;
 
   constructor(private appState: AppState) {
     this.appState.appUser$.subscribe((user) => {

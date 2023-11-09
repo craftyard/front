@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { User } from 'workshop/features/login/model/type';
+import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data/user/user-authentification.a-params';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -8,9 +9,9 @@ import { User } from 'workshop/features/login/model/type';
 export class AppState {
   public appMode$ = new BehaviorSubject<'mobile' | 'browser'>('browser');
 
-  public appUser$ = new BehaviorSubject<User | undefined>(undefined);
+  public appUser$ = new BehaviorSubject<TelegramAuthDTO | undefined>(undefined);
 
-  constructor() {
+  constructor(private router: Router) {
     this.calculateAppMode();
     this.resizeListener();
     this.loadUser();
@@ -26,9 +27,10 @@ export class AppState {
     this.appMode$.next(window.innerWidth > 768 ? 'browser' : 'mobile');
   }
 
-  public setUser(user: User): void {
+  public setUser(user: TelegramAuthDTO): void {
     this.appUser$.next(user);
     localStorage.setItem('user', JSON.stringify(user));
+    this.router.navigate(['/workshop']);
   }
 
   private loadUser(): void {
@@ -38,8 +40,10 @@ export class AppState {
       this.appUser$.next(user);
     }
   }
+
   public removeUser(): void {
     this.appUser$.next(undefined);
     localStorage.removeItem('user');
+    this.router.navigate(['/auth']);
   }
 }

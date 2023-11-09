@@ -1,9 +1,0 @@
-#userItems {
-    display: flex;
-    align-items: center;
-}
-@media (max-width:769px) {
-    #userItems{
-        display: block;
-    }
-}
