@@ -43,7 +43,11 @@ export class AppState {
 
   public removeUser(): void {
     this.appUser$.next(undefined);
-    localStorage.removeItem('user');
+    localStorage.clear();
+    window.location.reload();
+
+  }
+  goLogin() {
     this.router.navigate(['/auth']);
   }
 }

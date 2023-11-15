@@ -11,10 +11,12 @@ import { TelegramLoginWidgetComponent } from 'app/feature/login-btn/ui/component
 import { AuthPageComponent } from 'app/pages/auth/ui/component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppHeader } from './widgets/app-header/component';
-import { AppComponent } from './widgets/app/component';
+import { AppComponent } from './component';
 import { AppTreeComponent } from './entities/app-tree/component';
 import { AppState } from './model/app-state';
 import { WorkshopPage } from './pages/component';
+import { WarapperComponent } from './widgets/warapper/warapper.component';
+import { AuthGuard } from 'app/model/auth.guard';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { WorkshopPage } from './pages/component';
     CurrentUserComponent,
     TelegramLoginWidgetComponent,
     AuthPageComponent,
+    WarapperComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { WorkshopPage } from './pages/component';
     MatSidenavModule,
     MatListModule,
   ],
-  providers: [AppState],
+  providers: [AppState, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
