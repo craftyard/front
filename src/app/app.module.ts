@@ -7,7 +7,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { LogOutComponent } from 'app/feature/logout-btn/ui/component';
 import { CurrentUserComponent } from 'app/entities/user-header/ui/component';
-import { TelegramLoginWidgetComponent } from 'app/feature/login-btn/ui/component';
+import { LoginButtonComponent } from 'app/feature/login-btn/ui/component';
 import { AuthPageComponent } from 'app/pages/auth/ui/component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppHeader } from './widgets/app-header/component';
@@ -24,7 +24,7 @@ import { WorkshopPage } from './pages/component';
     WorkshopPage,
     LogOutComponent,
     CurrentUserComponent,
-    TelegramLoginWidgetComponent,
+    LoginButtonComponent,
     AuthPageComponent,
   ],
   imports: [

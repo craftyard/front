@@ -5,21 +5,20 @@ import { AppState } from 'app/model/app-state';
 import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data//user/user-authentification.a-params';
 
 @Component({
-  selector: 'app-telegram-login-btn',
+  selector: 'login-btn',
   template: `
     <div #script>
       <ng-content></ng-content>
     </div>
   `,
 })
-export class TelegramLoginWidgetComponent implements AfterContentInit {
+export class LoginButtonComponent implements AfterContentInit {
   @ViewChild('script', { static: true }) script!: ElementRef;
 
   constructor(private ngZone: NgZone, private appstate: AppState) {
     (window as any).onTelegramAuth = (user: TelegramAuthDTO) => {
       this.ngZone.run(() => {
         this.appstate.setUser(user);
-        console.log('hello');
       });
     };
   }

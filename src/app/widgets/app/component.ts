@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
 
   appUser: TelegramAuthDTO | undefined = undefined;
 
-  // eslint-disable-next-line no-useless-constructor, no-empty-function
   constructor(private appState: AppState) {
     this.appState.appUser$.subscribe((user) => {
       this.appUser = user;
