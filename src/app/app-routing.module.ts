@@ -8,6 +8,7 @@ import { WarapperComponent } from './widgets/warapper/warapper.component';
 import { UserProfileComponent } from 'workshop/entities/user/ui/component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/workshop', pathMatch: 'full' },
   { path: 'auth', component: AuthPageComponent },
   {
     path: '', component: WarapperComponent, children: [
@@ -22,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }

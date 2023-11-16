@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
@@ -16,7 +15,10 @@ import { AppTreeComponent } from './entities/app-tree/component';
 import { AppState } from './model/app-state';
 import { WorkshopPage } from './pages/component';
 import { WarapperComponent } from './widgets/warapper/warapper.component';
-import { AuthGuard } from 'app/model/auth.guard';
+import { CommonModule } from '@angular/common';
+import { AuthGuard } from './model/auth.guard';
+
+
 
 @NgModule({
   declarations: [
@@ -31,15 +33,13 @@ import { AuthGuard } from 'app/model/auth.guard';
     WarapperComponent,
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
     MatListModule,
   ],
   providers: [AppState, AuthGuard],
-  bootstrap: [AppComponent],
 })
 export class AppModule { }
