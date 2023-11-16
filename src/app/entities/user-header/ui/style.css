@@ -1,0 +1,11 @@
+
+#user-profile{
+    margin-right: 15px;
+    text-align: start;
+}
+@media (max-width:769px) {
+    #user-profile{
+        padding-bottom: 10px;
+        text-align: center;
+     }   
+  }

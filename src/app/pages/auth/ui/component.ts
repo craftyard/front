@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'user-info-entities',
+  selector: 'auth-page',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class UserProfileComponent {
+export class AuthPageComponent {
 
 }

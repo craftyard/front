@@ -3,9 +3,7 @@
   margin-bottom: 15px;
 
 }
-app-header-auth{
-text-align: center;
-}
+
 .page-content{
 background-color: white;
   width: 100%;
@@ -40,8 +38,9 @@ app-header{
   display: flex;
   align-items: center;
   justify-content: center;
-
-
+}
+#userItems{
+  display: block;
 }
 }
 .mat-drawer-container{
