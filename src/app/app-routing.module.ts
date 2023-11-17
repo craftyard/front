@@ -1,24 +1,28 @@
 // app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WorkshopPage } from './pages/component';
-import { AuthPageComponent } from './pages/auth/ui/component';
 import { AuthGuard } from 'app/model/auth.guard';
-import { WarapperComponent } from './widgets/warapper/warapper.component';
-import { UserProfileComponent } from 'workshop/entities/user/ui/component';
+import { AuthPageComponent } from 'app/pages/auth/ui/component';
+import { WarapperComponent } from 'app/widgets/warapper/warapper.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/workshop', pathMatch: 'full' },
+  { path: '', redirectTo: 'workpage', pathMatch: 'full' },
   { path: 'auth', component: AuthPageComponent },
   {
-    path: '', component: WarapperComponent, children: [
+    path: '',
+    component: WarapperComponent,
+    children: [
       {
-        path: 'workshop', component: WorkshopPage, canActivate: [AuthGuard]
+        path: 'workpage',
+        loadChildren: () => import('../workshop/workshop.module').then((m) => m.WorkshopModule),
+        canActivate: [AuthGuard],
       },
       {
-        path: 'user', component: UserProfileComponent, canActivate: [AuthGuard]
-      }
-    ]
+        path: 'subjectpage',
+        loadChildren: () => import('../subject/subject.module').then((m) => m.SubjectModule),
+        canActivate: [AuthGuard],
+      },
+    ],
   },
 ];
 

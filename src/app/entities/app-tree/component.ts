@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppTreeComponent {
   menuItem = [
-    { title: 'мастерская', routerLink: '/workshop' },
+
+    { title: 'мастерская', routerLink: '/workpage' },
+    { title: 'сотрудники', routerLink: '/subjectpage' },
   ];
 }

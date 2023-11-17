@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from 'app/model/app-state';
 import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data/user/user-authentification.a-params';
+
 @Component({
   selector: 'app-warapper',
   templateUrl: './warapper.component.html',
