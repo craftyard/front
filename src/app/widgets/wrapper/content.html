@@ -1,6 +1,4 @@
-<auth-page *ngIf="appUser === undefined"></auth-page>
-
-<div class="page-container" *ngIf="appUser">
+<div class="page-container" >
   <div *ngIf="appMode === 'browser'">
     <app-header></app-header>
     <div class="container">
@@ -36,7 +34,9 @@
         </div>
         <app-header></app-header>
       </div>
-      <router-outlet> </router-outlet>
+      <div  id="bg-page">
+        <router-outlet> </router-outlet>
+      </div>
     </div>
   </mat-drawer-container>
   
