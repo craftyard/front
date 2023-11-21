@@ -1,5 +1,5 @@
 import { DomainModuleState } from '../app/model/domain-module-state';
-import { TreeItem } from '../app/model/type';
+import { TreeItem } from '../app/entities/app-tree-item/model/type';
 
 export class SubjectModuleState implements DomainModuleState {
   private treeItems:TreeItem[] = [

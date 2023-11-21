@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AppState } from 'app/model/app-state';
+import { TreeItem } from 'app/entities/app-tree-item/model/type';
 
 @Component({
   selector: 'app-tree',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class AppTreeComponent {
-  menuItem = [
+export class AppTreeComponent implements OnInit {
+  constructor(private appState: AppState) { }
 
-    { title: 'мастерская', routerLink: '/workpage' },
-    { title: 'сотрудники', routerLink: '/subjectpage' },
-  ];
+  menuItems: TreeItem[] = [];
+
+  ngOnInit(): void {
+    this.menuItems = this.appState.treeItems;
+  }
 }
