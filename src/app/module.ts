@@ -14,7 +14,15 @@ import { AppState } from 'app/model/app-state';
 import { AppTreeComponent } from 'app/entities/app-tree/component';
 import { WrapperComponent } from 'app/widgets/wrapper/component';
 import { AppRoutingModule } from 'app/router';
+import { SubjectModuleState } from 'subject/module-state';
 import { AuthGuard } from 'app/model/auth.guard';
+import { DomainModuleState } from 'app/model/domain-module-state';
+import { WorkShopModuleState } from 'workshop/module-state';
+
+const domainModuleStates: DomainModuleState[] = [
+  new WorkShopModuleState(),
+  new SubjectModuleState(),
+];
 
 @NgModule({
   declarations: [
@@ -35,6 +43,9 @@ import { AuthGuard } from 'app/model/auth.guard';
     MatSidenavModule,
     MatListModule,
   ],
-  providers: [AppState, AuthGuard],
+  providers: [AppState, AuthGuard, {
+    provide: 'domainModuleStates', useValue: domainModuleStates,
+
+  }],
 })
 export class AppModule { }
