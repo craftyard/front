@@ -1,7 +1,7 @@
-import { ModuleState } from '../app/model/module-state';
+import { DomainModuleState } from '../app/model/domain-module-state';
 import { TreeItem } from '../app/model/type';
 
-export class SubjectModuleState implements ModuleState {
+export class SubjectModuleState implements DomainModuleState {
   private treeItems:TreeItem[] = [
     { title: 'сотрудники', routerLink: 'subjectpage' },
   ];

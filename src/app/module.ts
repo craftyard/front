@@ -16,10 +16,10 @@ import { WrapperComponent } from 'app/widgets/wrapper/component';
 import { AppRoutingModule } from 'app/router';
 import { SubjectModuleState } from 'subject/module-state';
 import { AuthGuard } from 'app/model/auth.guard';
-import { ModuleState } from 'app/model/module-state';
+import { DomainModuleState } from 'app/model/domain-module-state';
 import { WorkShopModuleState } from 'workshop/module-state';
 
-const domainModuleStates: ModuleState[] = [
+const domainModuleStates: DomainModuleState[] = [
   new WorkShopModuleState(),
   new SubjectModuleState(),
 ];

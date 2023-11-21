@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data/user/user-authentification.a-params';
 import { Router } from '@angular/router';
 import { TreeItem } from 'app/model/type';
-import { ModuleState } from 'app/model/module-state';
+import { DomainModuleState } from 'app/model/domain-module-state';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class AppState {
 
   public treeItems: TreeItem[] = [];
 
-  constructor(private router: Router, @Inject('domainModuleStates') private moduleStates: ModuleState[]) {
+  constructor(private router: Router, @Inject('domainModuleStates') private moduleStates: DomainModuleState[]) {
     this.calculateAppMode();
     this.resizeListener();
     this.loadUser();

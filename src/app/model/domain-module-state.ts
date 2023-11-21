@@ -1,5 +1,5 @@
 import { TreeItem } from './type';
 
-export interface ModuleState {
+export interface DomainModuleState {
   getTreeItems(): TreeItem[]
 }
