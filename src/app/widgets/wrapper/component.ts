@@ -4,10 +4,10 @@ import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data/user/us
 
 @Component({
   selector: 'app-warapper',
-  templateUrl: './warapper.component.html',
-  styleUrls: ['./warapper.component.css']
+  templateUrl: './content.html',
+  styleUrls: ['./style.css'],
 })
-export class WarapperComponent implements OnInit {
+export class WrapperComponent implements OnInit {
   appMode: 'mobile' | 'browser' = 'browser';
 
   appUser: TelegramAuthDTO | undefined = undefined;

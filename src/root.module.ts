@@ -2,8 +2,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RootComponent } from 'root.component';
-import { AppRoutingModule } from 'root.router.module';
+import { RootComponent } from 'component';
+import { AppRoutingModule } from 'router';
 
 @NgModule({
   declarations: [

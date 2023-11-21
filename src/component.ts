@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './root.component.html',
-  styleUrls: ['./root.component.css'],
+  templateUrl: './content.html',
+  styleUrls: ['./style.css'],
 })
 export class RootComponent {
 

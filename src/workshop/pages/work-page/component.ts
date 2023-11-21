@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-work-page',
-  templateUrl: './work-page.component.html',
-  styleUrls: ['./work-page.component.css'],
+  templateUrl: './content.html',
+  styleUrls: ['./style.css'],
 })
 export class WorkPageComponent {
 

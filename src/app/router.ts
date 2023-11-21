@@ -3,23 +3,23 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'app/model/auth.guard';
 import { AuthPageComponent } from 'app/pages/auth/ui/component';
-import { WarapperComponent } from 'app/widgets/warapper/warapper.component';
+import { WrapperComponent } from 'app/widgets/wrapper/component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'workpage', pathMatch: 'full' },
   { path: 'auth', component: AuthPageComponent },
   {
     path: '',
-    component: WarapperComponent,
+    component: WrapperComponent,
     children: [
       {
         path: 'workpage',
-        loadChildren: () => import('../workshop/workshop.module').then((m) => m.WorkshopModule),
+        loadChildren: () => import('workshop/module').then((m) => m.WorkshopModule),
         canActivate: [AuthGuard],
       },
       {
         path: 'subjectpage',
-        loadChildren: () => import('../subject/subject.module').then((m) => m.SubjectModule),
+        loadChildren: () => import('subject/module').then((m) => m.SubjectModule),
         canActivate: [AuthGuard],
       },
     ],

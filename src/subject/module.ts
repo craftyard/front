@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EmployeerComponent } from './pages/employeer/employeer.component';
-import { SubjectRoutingModule } from './subject-routing.module';
+import { EmployeeComponent } from 'subject/pages/employee/ui/component';
+import { SubjectRoutingModule } from 'subject/router';
 
 @NgModule({
   declarations: [
-    EmployeerComponent,
+    EmployeeComponent,
   ],
   imports: [
     CommonModule,

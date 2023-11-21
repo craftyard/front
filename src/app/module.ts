@@ -12,9 +12,9 @@ import { AppHeader } from 'app/widgets/app-header/component';
 import { AppComponent } from 'app/component';
 import { AppState } from 'app/model/app-state';
 import { AppTreeComponent } from 'app/entities/app-tree/component';
-import { AppRoutingModule } from './app-routing.module';
-import { WarapperComponent } from './widgets/warapper/warapper.component';
-import { AuthGuard } from './model/auth.guard';
+import { WrapperComponent } from 'app/widgets/wrapper/component';
+import { AppRoutingModule } from 'app/router';
+import { AuthGuard } from 'app/model/auth.guard';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { AuthGuard } from './model/auth.guard';
     CurrentUserComponent,
     LoginButtonComponent,
     AuthPageComponent,
-    WarapperComponent,
+    WrapperComponent,
   ],
   imports: [
     CommonModule,

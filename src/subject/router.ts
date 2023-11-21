@@ -1,10 +1,10 @@
 // app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WorkPageComponent } from './pages/work-page/work-page.component';
+import { EmployeeComponent } from 'subject/pages/employee/ui/component';
 
 const routes: Routes = [
-  { path: '', component: WorkPageComponent },
+  { path: '', component: EmployeeComponent },
 
 ];
 
@@ -12,4 +12,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class WorkshopRoutingModule { }
+export class SubjectRoutingModule { }
