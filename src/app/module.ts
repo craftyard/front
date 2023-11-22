@@ -11,8 +11,8 @@ import { CommonModule } from '@angular/common';
 import { AppHeader } from 'app/widgets/app-header/component';
 import { AppComponent } from 'app/component';
 import { AppState } from 'app/model/app-state';
-import { AppTreeComponent } from 'app/entities/app-tree/component';
-import { WrapperComponent } from 'app/widgets/wrapper/component';
+import { AppTreeComponent } from 'app/widgets/app-tree/component';
+import { AppPageComponent } from 'app/pages/app-page/component';
 import { AppRoutingModule } from 'app/router';
 import { SubjectModuleState } from 'subject/module-state';
 import { AuthGuard } from 'app/model/auth.guard';
@@ -34,7 +34,7 @@ const domainModuleStates: DomainModuleState[] = [
     CurrentUserComponent,
     LoginButtonComponent,
     AuthPageComponent,
-    WrapperComponent,
+    AppPageComponent,
     TreeItemComponent,
   ],
   imports: [
