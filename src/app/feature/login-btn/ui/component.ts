@@ -1,7 +1,7 @@
 import {
   AfterContentInit, Component, ElementRef, NgZone, ViewChild,
 } from '@angular/core';
-import { AppState } from 'app/model/app-state';
+import { AppState } from 'app/pages/app-page/model/app-state';
 import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data//user/user-authentification.a-params';
 
 @Component({

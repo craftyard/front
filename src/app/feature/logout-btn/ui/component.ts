@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppState } from 'app/model/app-state';
+import { AppState } from 'app/pages/app-page/model/app-state';
 
 @Component({
   selector: 'logout-button',

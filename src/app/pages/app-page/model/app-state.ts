@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data/user/user-authentification.a-params';
 import { Router } from '@angular/router';
 import { TreeItem } from 'app/entities/tree-item/model/type';
-import { DomainModuleState } from 'app/model/domain-module-state';
+import { DomainModuleState } from 'app/pages/app-page/model/domain-module-state';
 
 @Injectable({
   providedIn: 'root',

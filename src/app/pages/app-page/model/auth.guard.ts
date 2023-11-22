@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { AppState } from 'app/model/app-state';
+import { AppState } from 'app/pages/app-page/model/app-state';
 
 @Injectable()
 export class AuthGuard {
