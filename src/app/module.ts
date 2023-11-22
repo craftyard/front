@@ -10,13 +10,13 @@ import { AuthPageComponent } from 'app/pages/auth/ui/component';
 import { CommonModule } from '@angular/common';
 import { AppHeader } from 'app/widgets/app-header/component';
 import { AppComponent } from 'app/component';
-import { AppState } from 'app/pages/app-page/model/app-state';
+import { AppState } from 'app/shared/states/app-state';
 import { AppTreeComponent } from 'app/widgets/app-tree/component';
 import { AppPageComponent } from 'app/pages/app-page/ui/component';
 import { AppRoutingModule } from 'app/router';
 import { SubjectModuleState } from 'subject/module-state';
-import { AuthGuard } from 'app/pages/app-page/model/auth.guard';
-import { DomainModuleState } from 'app/pages/app-page/model/domain-module-state';
+import { AuthGuard } from 'app/shared/guards/auth.guard';
+import { DomainModuleState } from 'app/shared/states/domain-module-state';
 import { WorkShopModuleState } from 'workshop/module-state';
 import { TreeItemComponent } from 'app/entities/tree-item/ui/component';
 

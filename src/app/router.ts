@@ -1,7 +1,7 @@
 // app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from 'app/pages/app-page/model/auth.guard';
+import { AuthGuard } from 'app/shared/guards/auth.guard';
 import { AuthPageComponent } from 'app/pages/auth/ui/component';
 import { AppPageComponent } from 'app/pages/app-page/ui/component';
 
