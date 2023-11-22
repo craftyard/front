@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { TreeItem } from 'app/entities/app-tree-item/model/type';
+import { TreeItem } from 'app/entities/tree-item/model/type';
 
 @Component({
-  selector: 'app-tree-item',
+  selector: 'tree-item',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class AppTreeItemComponent {
+export class TreeItemComponent {
   @Input() treeItem!:TreeItem;
 }
