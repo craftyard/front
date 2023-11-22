@@ -18,6 +18,7 @@ import { SubjectModuleState } from 'subject/module-state';
 import { AuthGuard } from 'app/model/auth.guard';
 import { DomainModuleState } from 'app/model/domain-module-state';
 import { WorkShopModuleState } from 'workshop/module-state';
+import { TreeItemComponent } from 'app/entities/tree-item/ui/component';
 
 const domainModuleStates: DomainModuleState[] = [
   new WorkShopModuleState(),
@@ -34,6 +35,7 @@ const domainModuleStates: DomainModuleState[] = [
     LoginButtonComponent,
     AuthPageComponent,
     WrapperComponent,
+    TreeItemComponent,
   ],
   imports: [
     CommonModule,

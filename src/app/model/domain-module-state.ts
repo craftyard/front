@@ -1,4 +1,4 @@
-import { TreeItem } from './type';
+import { TreeItem } from '../entities/tree-item/model/type';
 
 export interface DomainModuleState {
   getTreeItems(): TreeItem[]
