@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from 'app/model/app-state';
+import { AppState } from 'app/shared/states/app-state';
 import { TreeItem } from 'app/entities/tree-item/model/type';
 
 @Component({

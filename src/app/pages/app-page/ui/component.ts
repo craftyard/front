@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from 'app/model/app-state';
+import { AppState } from 'app/shared/states/app-state';
 import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data/user/user-authentification.a-params';
 
 @Component({
-  selector: 'app-warapper',
+  selector: 'app-page',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class WrapperComponent implements OnInit {
+export class AppPageComponent implements OnInit {
   appMode: 'mobile' | 'browser' = 'browser';
 
   appUser: TelegramAuthDTO | undefined = undefined;
