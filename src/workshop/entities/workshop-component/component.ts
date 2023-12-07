@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-work-page',
+  selector: 'workshop-component',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class WorkPageComponent {
+export class WorkshopComponent {
 
 }

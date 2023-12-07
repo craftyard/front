@@ -1,10 +1,10 @@
 // app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WorkPageComponent } from 'workshop/pages/work-page/component';
+import { WorkshopComponent } from 'workshop/entities/workshop-component/component';
 
 const routes: Routes = [
-  { path: '', component: WorkPageComponent },
+  { path: '', component: WorkshopComponent },
 
 ];
 

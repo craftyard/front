@@ -3,7 +3,7 @@ import { TreeItem } from '../app/entities/tree-item/model/type';
 
 export class WorkShopModuleState implements DomainModuleState {
   private treeItems:TreeItem[] = [
-    { title: 'мастерская', routerLink: 'workpage' },
+    { title: 'мастерская', routerLink: 'myWorkshop' },
   ];
 
   getTreeItems(): TreeItem[] {
