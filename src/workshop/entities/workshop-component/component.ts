@@ -1,15 +1,10 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'workshop-component',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class WorkshopComponent implements OnInit {
-  constructor(private http:HttpClient) { }
+export class WorkshopComponent {
 
-  ngOnInit(): void {
-    this.http.get('https://jsonplaceholder.typicode.com/todos/1').subscribe((v) => console.log(v));
-  }
 }
