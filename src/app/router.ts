@@ -6,14 +6,14 @@ import { AuthPageComponent } from 'app/pages/auth/ui/component';
 import { AppPageComponent } from 'app/pages/app-page/ui/component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'workpage', pathMatch: 'full' },
+  { path: '', redirectTo: 'myWorkshop', pathMatch: 'full' },
   { path: 'auth', component: AuthPageComponent },
   {
     path: '',
     component: AppPageComponent,
     children: [
       {
-        path: 'workpage',
+        path: 'myWorkshop',
         loadChildren: () => import('workshop/module').then((m) => m.WorkshopModule),
         canActivate: [AuthGuard],
       },

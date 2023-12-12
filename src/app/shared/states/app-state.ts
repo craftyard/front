@@ -35,7 +35,7 @@ export class AppState {
   public setUser(user: TelegramAuthDTO): void {
     this.appUser$.next(user);
     localStorage.setItem('user', JSON.stringify(user));
-    this.router.navigate(['/workpage']);
+    this.router.navigate(['/myWorkshop']);
   }
 
   private loadUser(): void {

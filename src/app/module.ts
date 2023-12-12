@@ -19,6 +19,8 @@ import { AuthGuard } from 'app/shared/guards/auth.guard';
 import { DomainModuleState } from 'app/shared/states/domain-module-state';
 import { WorkShopModuleState } from 'workshop/module-state';
 import { TreeItemComponent } from 'app/entities/tree-item/ui/component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
 
 const domainModuleStates: DomainModuleState[] = [
   new WorkShopModuleState(),
@@ -44,10 +46,16 @@ const domainModuleStates: DomainModuleState[] = [
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    HttpClientModule,
   ],
   providers: [AppState, AuthGuard, {
     provide: 'domainModuleStates', useValue: domainModuleStates,
-
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true,
   }],
+
 })
 export class AppModule { }
