@@ -29,7 +29,7 @@ describe('AppTreeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('В app-tree, который содержит массив menuItems, был добавлен mockAppState.treeItems ', () => {
+  it('В состояние компонента установилось массив элементов дерева', () => {
     fixture.detectChanges();
     expect(component.menuItems).toEqual(mockAppState.treeItems!);
   });

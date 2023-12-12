@@ -26,8 +26,7 @@ describe('TreeItemComponent', () => {
   });
 
   it('title должен отображаться в верхнем регистре', () => {
-    const res = component.treeItem.title[0].toUpperCase() + component.treeItem.title.slice(1);
-    expect(el.textContent).toContain(res);
+    expect(el.textContent).toContain('Мастерская');
   });
   it('Должны отображаться title и routerLink.', () => {
     component.treeItem = { title: 'профиль', routerLink: '/profile' };
