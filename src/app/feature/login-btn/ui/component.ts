@@ -24,7 +24,6 @@ export class LoginButtonComponent implements AfterContentInit {
     (window as any).onTelegramAuth = (user: TelegramAuthDTO) => {
       this.ngZone.run(() => {
         this.appstate.setUser(user);
-        this.subjectApi.lol();
       });
     };
   }

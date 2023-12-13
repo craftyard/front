@@ -13,10 +13,6 @@ export class SubjectApi implements Authentificationable {
 
   constructor(private http: HttpClient) { }
 
-  lol() {
-    alert('1');
-  }
-
   userAuthentification(telegramAuthDTO:TelegramAuthDTO): Observable<JWTTokens> {
     return this.http.post<JWTTokens>(this.urlApi, telegramAuthDTO);
   }
