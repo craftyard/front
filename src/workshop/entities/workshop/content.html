@@ -1,0 +1,18 @@
+<h1 style="color:#5041BC;font-size: 30px;">Моя мастерская</h1>
+<div id="workshop-info">
+    <text-element class="workshop-el"  label="Название:" [value]="workshopData.name"></text-element>
+    <text-element class="workshop-el" label="Город:" [value]="workshopData.city"></text-element>
+    <text-element class="workshop-el" label="Адресс:" [value]="workshopData.adress"></text-element>
+</div>
+<accordion-component header="Сотрудники">
+    <div class="user-cart" *ngFor="let user Of users">
+        <text-element label="Имя:" [value]="user.firstName"></text-element>
+        <text-element label="Фамилия:" [value]="user.lastName"></text-element>
+    </div>
+</accordion-component>
+<accordion-component header="Сотрудники">
+    <div class="user-cart" *ngFor="let user Of users">
+        <text-element label="Имя:" [value]="user.firstName"></text-element>
+        <text-element label="Фамилия:" [value]="user.lastName"></text-element>
+    </div>
+</accordion-component>

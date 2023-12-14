@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WorkshopComponent } from 'workshop/entities/workshop-component/component';
+import { WorkshopComponent } from 'workshop/entities/workshop/component';
 import { WorkshopRoutingModule } from 'workshop/router';
-import { TextElementComponent } from 'app/shared/ui-kit/text-element/component';
+import { AppModule } from 'app/module';
 
 @NgModule({
-  declarations: [
-    WorkshopComponent,
-    TextElementComponent,
-  ],
-  imports: [
-    CommonModule,
-    WorkshopRoutingModule,
-  ],
+    declarations: [
+        WorkshopComponent,
+    ],
+    imports: [
+        CommonModule,
+        WorkshopRoutingModule,
+        AppModule,
+    ]
 })
 export class WorkshopModule { }
