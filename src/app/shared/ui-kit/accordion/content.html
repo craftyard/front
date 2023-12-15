@@ -1,5 +1,5 @@
 <div id="accordion">
-    <button class="accordion-btn" [ngClass]="{ 'active': isOpen === true }" (click)="openAccordion()">
+    <button class="accordion-btn" [ngClass]="{ 'active': isOpen === true }" (click)="toggleAccordion()">
        {{header}}
     </button>
     <div class="content" *ngIf="isOpen">

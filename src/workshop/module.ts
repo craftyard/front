@@ -5,13 +5,13 @@ import { WorkshopRoutingModule } from 'workshop/router';
 import { AppModule } from 'app/module';
 
 @NgModule({
-    declarations: [
-        WorkshopComponent,
-    ],
-    imports: [
-        CommonModule,
-        WorkshopRoutingModule,
-        AppModule,
-    ]
+  declarations: [
+    WorkshopComponent,
+  ],
+  imports: [
+    CommonModule,
+    WorkshopRoutingModule,
+    AppModule,
+  ],
 })
 export class WorkshopModule { }

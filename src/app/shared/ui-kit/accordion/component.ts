@@ -7,9 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class AccordionComponent {
   isOpen = false;
+
   @Input() header?: string = '';
 
-  openAccordion(): void {
-    this.isOpen = !this.isOpen
+  toggleAccordion(): void {
+    this.isOpen = !this.isOpen;
   }
 }

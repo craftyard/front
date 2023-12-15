@@ -12,18 +12,19 @@ export class WorkshopComponent {
     city: 'Уральск',
 
   };
+
   users = [
     {
-      firstName:'Ренат',
-      lastName:'Сагынгалиев',
+      firstName: 'Ренат',
+      lastName: 'Сагынгалиев',
     },
-     {
-      firstName:'Дамир',
-      lastName:'Кубиев',
+    {
+      firstName: 'Дамир',
+      lastName: 'Кубиев',
     },
-     {
-      firstName:'Сагындык',
-      lastName:'Ислям',
+    {
+      firstName: 'Сагындык',
+      lastName: 'Ислям',
     },
-  ]
+  ];
 }
