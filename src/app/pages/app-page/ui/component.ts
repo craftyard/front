@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from 'app/shared/states/app-state';
-import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data/user/user-authentification.a-params';
+import { TelegramAuthDTO } from 'app/shared/user/telegram-auth-dto';
 
 @Component({
   selector: 'app-page',

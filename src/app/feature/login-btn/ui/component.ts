@@ -1,8 +1,9 @@
 import {
-  AfterContentInit, Component, ElementRef, NgZone, ViewChild,
+  AfterContentInit, Component, ElementRef, Inject, NgZone, ViewChild,
 } from '@angular/core';
 import { AppState } from 'app/shared/states/app-state';
-import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data//user/user-authentification.a-params';
+import { Authentificationable } from 'app/shared/user/authentificationable';
+import { TelegramAuthDTO } from 'app/shared/user/telegram-auth-dto';
 
 @Component({
   selector: 'login-btn',
@@ -15,7 +16,11 @@ import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data//user/u
 export class LoginButtonComponent implements AfterContentInit {
   @ViewChild('script', { static: true }) script!: ElementRef;
 
-  constructor(private ngZone: NgZone, private appstate: AppState) {
+  constructor(
+    @Inject('subjectApi') private subjectApi:Authentificationable,
+    private ngZone: NgZone,
+    private appstate: AppState,
+  ) {
     (window as any).onTelegramAuth = (user: TelegramAuthDTO) => {
       this.ngZone.run(() => {
         this.appstate.setUser(user);
