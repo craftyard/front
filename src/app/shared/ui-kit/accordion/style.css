@@ -1,0 +1,32 @@
+.accordion {
+    max-width: 300px;
+}
+.accordion-btn {
+    text-align: center;
+    font-size: 18px;
+    background-color: white;
+    color: #5041BC;
+    cursor: pointer;
+    padding: 18px;
+    width: 340px;
+    outline: none;
+    transition: 0.4s;
+    border: 1px solid #5041BC;
+    border-radius: 10px;
+    margin:  25px 0 10px 0;
+}
+
+.active,
+.accordion-btn:hover {
+    background-color: #4f41bc3f;
+    color: #5041BC;
+    border-radius: 10px;
+    border:1px solid #4f41bc3f
+}
+@media (max-width:760px) {
+    .accordion-btn {
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+    }
+}

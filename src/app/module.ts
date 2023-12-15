@@ -21,6 +21,8 @@ import { WorkShopModuleState } from 'workshop/module-state';
 import { TreeItemComponent } from 'app/entities/tree-item/ui/component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
+import { TextElementComponent } from './shared/ui-kit/text-element/component';
+import { AccordionComponent } from './shared/ui-kit/accordion/component';
 
 const domainModuleStates: DomainModuleState[] = [
   new WorkShopModuleState(),
@@ -38,6 +40,8 @@ const domainModuleStates: DomainModuleState[] = [
     AuthPageComponent,
     AppPageComponent,
     TreeItemComponent,
+    TextElementComponent,
+    AccordionComponent,
   ],
   imports: [
     CommonModule,
@@ -56,6 +60,6 @@ const domainModuleStates: DomainModuleState[] = [
     useClass: AuthInterceptor,
     multi: true,
   }],
-
+  exports:[TextElementComponent,AccordionComponent],
 })
 export class AppModule { }

@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data/user/user-authentification.a-params';
 import { Router } from '@angular/router';
 import { TreeItem } from 'app/entities/tree-item/model/type';
 import { DomainModuleState } from 'app/shared/states/domain-module-state';
+import { TelegramAuthDTO } from 'app/shared/user/telegram-auth-dto';
 
 @Injectable({
   providedIn: 'root',

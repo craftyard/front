@@ -1,0 +1,8 @@
+label {
+    min-width: 100px;
+}
+.custom-text-element {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5px;
+}
