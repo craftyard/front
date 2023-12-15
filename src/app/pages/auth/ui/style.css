@@ -5,3 +5,11 @@
     transform: translate(-50%, -50%);
     text-align: center;
 }
+#alert{
+    color: #5041BC;
+    font-size: 20px;
+    border: 1px solid;
+    padding: 4px;
+    background-color: #4f41bc3f;
+    border-radius: 10px;
+}
