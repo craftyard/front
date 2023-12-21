@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 import { AppState } from 'app/shared/states/app-state';
 import { Authentificationable } from 'app/shared/user/authentificationable';
-import { TelegramAuthDTO } from 'app/shared/user/telegram-auth-dto';
+import { TelegramAuthDTO } from 'workshop-domain/src/subject/domain-data/user/user-authentification/a-params';
 
 @Component({
   selector: 'login-btn',
