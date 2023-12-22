@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'workshop-component',
@@ -27,4 +28,6 @@ export class WorkshopComponent {
       lastName: 'Ислям',
     },
   ];
+
+  constructor(public dialog: MatDialog) {}
 }

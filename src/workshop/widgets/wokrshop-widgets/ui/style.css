@@ -1,0 +1,24 @@
+
+#browser-btn {
+    background-color: #5041BC;
+    height: 40px;
+    color: white;
+}
+
+#mobile-btn {
+    width: 100%;
+    background-color: #5041BC;
+    height: 40px;
+    display: none;
+    color: white;
+}
+
+@media (max-width:500px) {
+    #browser-btn {
+        display: none;
+    }
+
+    #mobile-btn {
+        display: block;
+    }
+}
