@@ -1,8 +1,15 @@
 <workshop-entity>
-        <button (click)="openDialog()" id="browser-btn" mat-flat-button>
-            Добавить модель
+    <div style="display: flex; align-items: center;">
+        <button (click)="openDialog(menuLink)" id="browser-btn" mat-flat-button>
+            {{ menuData }}
         </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" style=" border: 1px solid #5041BC; margin-left: 5px;">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngFor="let item of menuItems" (click)="selectMenuItem(item)">
+                {{ item.title }}
+            </button>
+        </mat-menu>
+    </div>
 </workshop-entity>
-<button (click)="openDialog()"  id="mobile-btn" mat-flat-button >
-    Добавить модель
-</button>
