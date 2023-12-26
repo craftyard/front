@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddModelComponent } from 'workshop/feature/add-model/ui/component';
 
 @Component({
-  selector: 'workshop-widgets',
+  selector: 'workshop-widget',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })

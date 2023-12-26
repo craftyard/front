@@ -10,7 +10,7 @@
 .mat-typography {
     padding-top: 10px;
 }
-#btn {
+mat-dialog-actions button {
     background-color: #5041BC;
     height: 40px;
     color: white;
