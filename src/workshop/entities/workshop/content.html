@@ -1,4 +1,7 @@
-<h1 style="color:#5041BC;font-size: 30px;">Моя мастерская</h1>
+<div id="workshop-title">
+    <h1 style="color:#5041BC;font-size: 30px;">Моя мастерская</h1>
+   <ng-content id="browser-btn"></ng-content>
+</div>
 <div id="workshop-info">
     <text-element class="workshop-el"  label="Название:" [value]="workshopData.name"></text-element>
     <text-element class="workshop-el" label="Город:" [value]="workshopData.city"></text-element>

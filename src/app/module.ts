@@ -20,9 +20,12 @@ import { DomainModuleState } from 'app/shared/states/domain-module-state';
 import { WorkShopModuleState } from 'workshop/module-state';
 import { TreeItemComponent } from 'app/entities/tree-item/ui/component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TextElementComponent } from 'app/shared/ui-kit/text-element/component';
+import { AccordionComponent } from 'app/shared/ui-kit/accordion/component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
-import { TextElementComponent } from './shared/ui-kit/text-element/component';
-import { AccordionComponent } from './shared/ui-kit/accordion/component';
 
 const domainModuleStates: DomainModuleState[] = [
   new WorkShopModuleState(),
@@ -51,6 +54,10 @@ const domainModuleStates: DomainModuleState[] = [
     MatSidenavModule,
     MatListModule,
     HttpClientModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [AppState, AuthGuard, {
     provide: 'domainModuleStates', useValue: domainModuleStates,
@@ -60,6 +67,14 @@ const domainModuleStates: DomainModuleState[] = [
     useClass: AuthInterceptor,
     multi: true,
   }],
-  exports:[TextElementComponent,AccordionComponent],
+  exports: [
+    TextElementComponent,
+    AccordionComponent,
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class AppModule { }

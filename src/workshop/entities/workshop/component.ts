@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'workshop-component',
+  selector: 'workshop-entity',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
@@ -27,4 +28,6 @@ export class WorkshopComponent {
       lastName: 'Ислям',
     },
   ];
+
+  constructor(public dialog: MatDialog) {}
 }
