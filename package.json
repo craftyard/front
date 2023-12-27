@@ -1,5 +1,5 @@
 {
-  "name": "front",
+  "name": "front-core-run",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -21,10 +21,10 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
-    "git+https://github.com/soul-workshop/rilata2": "git+https://github.com/soul-workshop/rilata2",
+    "rilata": "git+https://github.com/craftyard/rilata-core",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "workshop-domain": "git+https://github.com/soul-workshop/domain",
+    "cy-domain": "git+https://github.com/craftyard/domain",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
