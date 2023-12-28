@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'app/shared/guards/auth.guard';
 import { AuthPageComponent } from 'app/pages/auth/ui/component';
 import { AppPageComponent } from 'app/pages/app-page/ui/component';
+import { ErrorPageComponent } from 'app/pages/error-page/ui/component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'myWorkshop', pathMatch: 'full' },
   { path: 'auth', component: AuthPageComponent },
+  { path: 'error-page', component: ErrorPageComponent },
   {
     path: '',
     component: AppPageComponent,
@@ -15,7 +17,7 @@ const routes: Routes = [
       {
         path: 'myWorkshop',
         loadChildren: () => import('workshop/module').then((m) => m.WorkshopModule),
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
       },
       {
         path: 'subjectpage',

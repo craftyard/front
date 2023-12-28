@@ -1,0 +1,16 @@
+#auth {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#alert {
+    color: #d14137;
+    font-size: 20px;
+    border: 1px solid;
+    padding: 4px;
+    background-color: #ec00003f;
+    border-radius: 10px;
+}

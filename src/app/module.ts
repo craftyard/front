@@ -25,6 +25,7 @@ import { AccordionComponent } from 'app/shared/ui-kit/accordion/component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrorPageComponent } from 'app/pages/error-page/ui/component';
 import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
 
 const domainModuleStates: DomainModuleState[] = [
@@ -45,6 +46,7 @@ const domainModuleStates: DomainModuleState[] = [
     TreeItemComponent,
     TextElementComponent,
     AccordionComponent,
+    ErrorPageComponent,
   ],
   imports: [
     CommonModule,
