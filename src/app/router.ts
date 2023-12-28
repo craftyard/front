@@ -9,7 +9,7 @@ import { ErrorPageComponent } from 'app/pages/error-page/ui/component';
 const routes: Routes = [
   { path: '', redirectTo: 'myWorkshop', pathMatch: 'full' },
   { path: 'auth', component: AuthPageComponent },
-  { path: 'error-page', component: ErrorPageComponent },
+  { path: 'error-page/:id', component: ErrorPageComponent },
   {
     path: '',
     component: AppPageComponent,

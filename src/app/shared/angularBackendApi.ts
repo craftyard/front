@@ -3,6 +3,7 @@ import { AppBaseErrors } from 'rilata/src/app/service/error-types';
 import { GeneralQueryServiceParams, GeneralCommandServiceParams, ServiceResult } from 'rilata/src/app/service/types';
 import { Logger } from 'rilata/src/common/logger/logger';
 import { Router } from '@angular/router';
+import { STATUS_CODES } from 'rilata/src/app/controller/constants';
 
 export class AngularBackendApi extends BackendApi {
   protected override moduleUrl!: string;
@@ -18,8 +19,13 @@ export class AngularBackendApi extends BackendApi {
     const result = await super.request(actionDod);
     if (result.isFailure()) {
       const errName = (result.value as AppBaseErrors).meta.name;
-      if (errName === 'Not found') {
-        this.router.navigate(['/error/{status_code[err.name]']);
+      const redirectErrorNames: AppBaseErrors['meta']['name'][] = [
+        'Internal error',
+        'Permission denied',
+        'Not found',
+      ];
+      if (redirectErrorNames.includes(errName)) {
+        this.router.navigate([`/error/${STATUS_CODES[errName]}`]);
       }
     }
     return result;
