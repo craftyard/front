@@ -25,7 +25,7 @@ export class AngularBackendApi extends BackendApi {
         'Not found',
       ];
       if (redirectErrorNames.includes(errName)) {
-        this.router.navigate([`/error/${STATUS_CODES[errName]}`]);
+        this.router.navigate([`/error-page/${STATUS_CODES[errName]}`]);
       }
     }
     return result;
