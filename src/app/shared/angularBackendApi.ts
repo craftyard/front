@@ -4,11 +4,12 @@ import { GeneralQueryServiceParams, GeneralCommandServiceParams, ServiceResult }
 import { Logger } from 'rilata/src/common/logger/logger';
 import { Router } from '@angular/router';
 import { STATUS_CODES } from 'rilata/src/app/controller/constants';
+import { inject } from '@angular/core';
 
-export class AngularBackendApi extends BackendApi {
-  protected override moduleUrl!: string;
+export abstract class AngularBackendApi extends BackendApi {
+  router: Router = inject(Router);
 
-  constructor(logger: Logger, jwtToken: string, private router: Router) {
+  constructor(logger: Logger, jwtToken: string) {
     super(logger, jwtToken);
   }
 
