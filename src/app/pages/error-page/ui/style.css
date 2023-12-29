@@ -14,3 +14,8 @@
     background-color: #ec00003f;
     border-radius: 10px;
 }
+@media(max-width:500px) {
+#alert{
+    font-size: 18px;
+    }
+}
