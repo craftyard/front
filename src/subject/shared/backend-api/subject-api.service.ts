@@ -1,19 +1,15 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Authentificationable } from 'app/shared/user/authentificationable';
-import { JWTTokens } from 'rilata/src/app/jwt/types';
-import { Observable } from 'rxjs';
-import { TelegramAuthDTO } from 'cy-domain/src/subject/domain-data/user/user-authentification/a-params';
+import { Inject, Injectable } from '@angular/core';
+import { AngularBackendApi } from 'app/shared/angularBackendApi';
+import { Logger } from 'rilata/src/common/logger/logger';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SubjectApi implements Authentificationable {
-  urlApi = 'login';
+export class SubjectApi extends AngularBackendApi {
+  protected override moduleUrl: string = '/subject';
 
-  constructor(private http: HttpClient) { }
-
-  userAuthentification(telegramAuthDTO:TelegramAuthDTO): Observable<JWTTokens> {
-    return this.http.post<JWTTokens>(this.urlApi, telegramAuthDTO);
+  constructor(@Inject('logger') logger: Logger) {
+    const jwtToken: string | null = localStorage.getItem('user');
+    super(logger, jwtToken || '');
   }
 }

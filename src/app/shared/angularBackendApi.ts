@@ -1,12 +1,14 @@
 import { BackendApi } from 'rilata/src/app/backend-api/backend-api';
-import { AppBaseErrors } from 'rilata/src/app/service/error-types';
+import { ServiceBaseErrors } from 'rilata/src/app/service/error-types';
 import { GeneralQueryServiceParams, GeneralCommandServiceParams, ServiceResult } from 'rilata/src/app/service/types';
 import { Logger } from 'rilata/src/common/logger/logger';
 import { Router } from '@angular/router';
 import { STATUS_CODES } from 'rilata/src/app/controller/constants';
 import { inject } from '@angular/core';
 
-export abstract class AngularBackendApi extends BackendApi {
+export class AngularBackendApi extends BackendApi {
+  protected override moduleUrl!: string;
+
   router: Router = inject(Router);
 
   constructor(logger: Logger, jwtToken: string) {
@@ -19,8 +21,8 @@ export abstract class AngularBackendApi extends BackendApi {
   ): Promise<ServiceResult<SERVICE_PARAMS>> {
     const result = await super.request(actionDod);
     if (result.isFailure()) {
-      const errName = (result.value as AppBaseErrors).meta.name;
-      const redirectErrorNames: AppBaseErrors['meta']['name'][] = [
+      const errName = (result.value as ServiceBaseErrors).meta.name;
+      const redirectErrorNames: ServiceBaseErrors['meta']['name'][] = [
         'Internal error',
         'Permission denied',
         'Not found',

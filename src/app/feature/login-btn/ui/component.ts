@@ -1,9 +1,10 @@
 import {
   AfterContentInit, Component, ElementRef, Inject, NgZone, ViewChild,
 } from '@angular/core';
+import { AngularBackendApi } from 'app/shared/angularBackendApi';
 import { AppState } from 'app/shared/states/app-state';
-import { Authentificationable } from 'app/shared/user/authentificationable';
 import { TelegramAuthDTO } from 'cy-domain/src/subject/domain-data/user/user-authentification/a-params';
+import { UserAuthentificationActionDod } from 'cy-domain/src/subject/domain-data/user/user-authentification/s-params';
 
 @Component({
   selector: 'login-btn',
@@ -17,12 +18,21 @@ export class LoginButtonComponent implements AfterContentInit {
   @ViewChild('script', { static: true }) script!: ElementRef;
 
   constructor(
-    @Inject('subjectApi') private subjectApi:Authentificationable,
+    @Inject('userAuthApi') private userAuthApi: any,
     private ngZone: NgZone,
     private appstate: AppState,
   ) {
     (window as any).onTelegramAuth = (user: TelegramAuthDTO) => {
+      const actionDod: UserAuthentificationActionDod = {
+        meta: {
+          name: 'userAuthentification',
+          actionId: crypto.randomUUID(),
+          domainType: 'action',
+        },
+        attrs: user,
+      };
       this.ngZone.run(() => {
+        this.userAuthApi.request(actionDod);
         this.appstate.setUser(user);
       });
     };

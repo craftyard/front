@@ -17,7 +17,7 @@ const routes: Routes = [
       {
         path: 'myWorkshop',
         loadChildren: () => import('workshop/module').then((m) => m.WorkshopModule),
-        // canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
       },
       {
         path: 'subjectpage',
