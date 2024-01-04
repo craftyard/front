@@ -7,8 +7,6 @@ import { STATUS_CODES } from 'rilata/src/app/controller/constants';
 import { Inject, Injectable, inject } from '@angular/core';
 import { AssertionException } from 'rilata/src/common/exeptions';
 
-console.log(AssertionException);
-
 @Injectable({
   providedIn: 'root',
 })
