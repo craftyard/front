@@ -4,14 +4,23 @@ import { GeneralQueryServiceParams, GeneralCommandServiceParams, ServiceResult }
 import { Logger } from 'rilata/src/common/logger/logger';
 import { Router } from '@angular/router';
 import { STATUS_CODES } from 'rilata/src/app/controller/constants';
-import { inject } from '@angular/core';
+import { Inject, Injectable, inject } from '@angular/core';
+import { AssertionException } from 'rilata/src/common/exeptions';
 
-export class AngularBackendApi extends BackendApi {
-  protected override moduleUrl!: string;
+console.log(AssertionException);
 
+@Injectable({
+  providedIn: 'root',
+})
+export abstract class AngularBackendApi extends BackendApi {
   router: Router = inject(Router);
 
-  constructor(logger: Logger, jwtToken: string) {
+  constructor(@Inject('logger') logger: Logger) {
+    const jwtToken: string | null = localStorage.getItem('user');
+    if (!jwtToken) {
+      logger.error('not valid jwtToken');
+      throw new AssertionException('not valid jwtToken');
+    }
     super(logger, jwtToken);
   }
 
