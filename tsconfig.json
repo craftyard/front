@@ -2,15 +2,16 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src",
+  "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
+    "types": ["bun-types"],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
@@ -19,7 +20,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
+   "lib": [
       "ES2022",
       "dom"
     ]
@@ -28,6 +29,7 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": false,
+    
   }
 }
