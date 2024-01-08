@@ -5,9 +5,7 @@ import { Logger } from 'rilata/src/common/logger/logger';
 import { Router } from '@angular/router';
 import { STATUS_CODES } from 'rilata/src/app/controller/constants';
 import { Inject, Injectable, inject } from '@angular/core';
-import { AssertionException } from 'rilata/src/common/exeptions';
 
-console.log(STATUS_CODES);
 @Injectable({
   providedIn: 'root',
 })
@@ -15,19 +13,16 @@ export abstract class AngularBackendApi extends BackendApi {
   router: Router = inject(Router);
 
   constructor(@Inject('logger') logger: Logger) {
-    const jwtToken: string | null = localStorage.getItem('user');
-    if (!jwtToken) {
-      logger.error('not valid jwtToken');
-      throw new AssertionException('not valid jwtToken');
-    }
-    super(logger, jwtToken);
+    super(logger);
   }
 
   override async request<SERVICE_PARAMS extends GeneralQueryServiceParams
   | GeneralCommandServiceParams>(
     actionDod: SERVICE_PARAMS['actionDod'],
   ): Promise<ServiceResult<SERVICE_PARAMS>> {
-    const result = await super.request(actionDod);
+    const jwtToken = localStorage.getItem('user') ?? undefined;
+    const result = await super.request(actionDod, jwtToken);
+    console.log(result);
     if (result.isFailure()) {
       const errName = (result.value as ServiceBaseErrors).meta.name;
       const redirectErrorNames: ServiceBaseErrors['meta']['name'][] = [
@@ -39,6 +34,7 @@ export abstract class AngularBackendApi extends BackendApi {
         this.router.navigate([`/error-page/${STATUS_CODES[errName]}`]);
       }
     }
+
     return result;
   }
 }

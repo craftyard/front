@@ -5,5 +5,5 @@ import { AngularBackendApi } from 'app/shared/angularBackendApi';
   providedIn: 'root',
 })
 export class SubjectApi extends AngularBackendApi {
-  protected override moduleUrl: string = '/subject';
+  protected moduleUrl: string = 'http://localhost:3000/subject';
 }
