@@ -20,9 +20,8 @@ export abstract class AngularBackendApi extends BackendApi {
   | GeneralCommandServiceParams>(
     actionDod: SERVICE_PARAMS['actionDod'],
   ): Promise<ServiceResult<SERVICE_PARAMS>> {
-    const jwtToken = localStorage.getItem('user') ?? undefined;
+    const jwtToken = localStorage.getItem('accessToken') ?? undefined;
     const result = await super.request(actionDod, jwtToken);
-    console.log(result);
     if (result.isFailure()) {
       const errName = (result.value as ServiceBaseErrors).meta.name;
       const redirectErrorNames: ServiceBaseErrors['meta']['name'][] = [

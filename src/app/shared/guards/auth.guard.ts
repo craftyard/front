@@ -10,7 +10,7 @@ export class AuthGuard {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
   ): boolean {
-    if (localStorage.getItem('user')) {
+    if (localStorage.getItem('accessToken')) {
       return true;
     }
     this.appService.goLogin();

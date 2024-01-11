@@ -9,7 +9,6 @@ import { ErrorPageComponent } from 'app/pages/error-page/ui/component';
 const routes: Routes = [
   { path: '', redirectTo: 'myWorkshop', pathMatch: 'full' },
   { path: 'auth', component: AuthPageComponent },
-  { path: 'error-page/:id', component: ErrorPageComponent },
   {
     path: '',
     component: AppPageComponent,
@@ -26,6 +25,8 @@ const routes: Routes = [
       },
     ],
   },
+  { path: 'error-page/:id', component: ErrorPageComponent },
+  { path: '**', redirectTo: 'error-page/404' },
 ];
 
 @NgModule({

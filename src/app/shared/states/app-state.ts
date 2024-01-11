@@ -32,8 +32,9 @@ export class AppState {
     this.appMode$.next(window.innerWidth > 768 ? 'browser' : 'mobile');
   }
 
-  public setUser(user: TelegramAuthDTO): void {
+  public setUser(accessToken: string, user:TelegramAuthDTO): void {
     this.appUser$.next(user);
+    localStorage.setItem('accessToken', accessToken);
     localStorage.setItem('user', JSON.stringify(user));
     this.router.navigate(['/myWorkshop']);
   }
