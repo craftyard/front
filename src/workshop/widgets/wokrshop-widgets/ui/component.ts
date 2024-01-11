@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddModelComponent } from 'workshop/feature/add-model/ui/component';
-import { WorkshopApi } from 'workshop/shared/workshop-api.service';
+import { WorkshopApi } from 'workshop/shared/backend-api/workshop-api.service';
 import { GetMyWorkshopActionDod, GetMyWorkshopServiceParams } from 'cy-domain/src/workshop/domain-data/workshop/get-my-workshop/s-params';
 import { SubjectApi } from 'subject/shared/backend-api/subject-api.service';
 import { GetUsersActionDod, GetingUsersServiceParams } from 'cy-domain/src/subject/domain-data/user/get-users/s-params';

@@ -11,7 +11,6 @@ import { Logger } from 'rilata/src/common/logger/logger';
 @Component({
   selector: 'login-btn',
   template: `
-  <button (click)="on()">asdsa</button>
     <div #script>
       <ng-content></ng-content>
     </div>
@@ -53,36 +52,6 @@ export class LoginButtonComponent implements AfterContentInit {
         }
       });
     };
-  }
-
-  users: TelegramAuthDTO = {
-    id: 5298484021,
-    auth_date: new Date('2021-01-01').getTime() - 1000,
-    hash: '94e3af7a0604b8494aa812f17159321958220291916aa78462c7cbc153d14056',
-  };
-
-  async on() {
-    const actionDod: UserAuthentificationActionDod = {
-      meta: {
-        name: 'userAuthentification',
-        actionId: crypto.randomUUID(),
-        domainType: 'action',
-      },
-      attrs: this.users,
-    };
-    const result = await this.userAuthApi.request<UserAuthentificationServiceParams>(actionDod);
-    if (result.isFailure()) {
-      const err = result.value;
-      if (err.meta.name === 'TelegramUserDoesNotExistError') {
-        this.router.navigate(['/error-page/TelegramUserDoesNotExistError']);
-      }
-      if (err.meta.name === 'ManyAccountNotSupportedError') {
-        this.router.navigate(['/error-page/ManyAccountNotSupportedError']);
-      }
-    }
-    if (result.isSuccess()) {
-      this.appstate.setUser(result.value.accessToken, this.users);
-    }
   }
 
   convertToScript() {
