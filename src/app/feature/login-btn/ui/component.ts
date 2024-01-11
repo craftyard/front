@@ -2,11 +2,11 @@ import {
   AfterContentInit, Component, ElementRef, Inject, NgZone, ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularBackendApi } from 'app/shared/angularBackendApi';
 import { AppState } from 'app/shared/states/app-state';
 import { TelegramAuthDTO } from 'cy-domain/src/subject/domain-data/user/user-authentification/a-params';
 import { UserAuthentificationActionDod, UserAuthentificationServiceParams } from 'cy-domain/src/subject/domain-data/user/user-authentification/s-params';
 import { Logger } from 'rilata/src/common/logger/logger';
-import { SubjectApi } from 'subject/shared/backend-api/subject-api.service';
 
 @Component({
   selector: 'login-btn',
@@ -20,7 +20,7 @@ export class LoginButtonComponent implements AfterContentInit {
   @ViewChild('script', { static: true }) script!: ElementRef;
 
   constructor(
-    @Inject('userAuthApi') private userAuthApi: SubjectApi,
+    @Inject('userAuthApi') private userAuthApi: AngularBackendApi,
     private ngZone: NgZone,
     private appstate: AppState,
     @Inject('logger') private logger: Logger,
