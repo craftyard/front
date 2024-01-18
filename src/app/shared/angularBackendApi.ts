@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-constructor */
 import { BackendApi } from 'rilata/src/app/backend-api/backend-api';
 import { ServiceBaseErrors } from 'rilata/src/app/service/error-types';
 import { GeneralQueryServiceParams, GeneralCommandServiceParams, ServiceResult } from 'rilata/src/app/service/types';
@@ -23,8 +24,8 @@ export abstract class AngularBackendApi extends BackendApi {
     const jwtToken = localStorage.getItem('accessToken') ?? undefined;
     const result = await super.request(actionDod, jwtToken);
     if (result.isFailure()) {
-      const errName = (result.value as ServiceBaseErrors).meta.name;
-      const redirectErrorNames: ServiceBaseErrors['meta']['name'][] = [
+      const errName = (result.value as ServiceBaseErrors).name;
+      const redirectErrorNames: ServiceBaseErrors['name'][] = [
         'Internal error',
         'Permission denied',
         'Not found',

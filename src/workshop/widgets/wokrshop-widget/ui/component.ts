@@ -8,17 +8,19 @@ import { SubjectApi } from 'subject/shared/backend-api/subject-api.service';
 import { GetUsersActionDod, GetingUsersServiceParams } from 'cy-domain/src/subject/domain-data/user/get-users/s-params';
 import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
 import { WorkshopAttrs } from 'cy-domain/src/workshop/domain-data/workshop/params';
+import { AlertComponent } from 'app/shared/ui-kit/alert/component';
 
 @Component({
   selector: 'workshop-widget',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class WorkshopWidgetsComponent implements OnInit {
+export class WorkshopWidgetComponent implements OnInit {
   constructor(
   public dialog: MatDialog,
   private workshopApi: WorkshopApi,
   private subjectApi: SubjectApi,
+   private alert:AlertComponent,
   ) {}
 
   workshopData!: WorkshopAttrs;
@@ -27,10 +29,6 @@ export class WorkshopWidgetsComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(AddModelComponent);
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-    });
   }
 
   async ngOnInit(): Promise<void> {
@@ -56,9 +54,16 @@ export class WorkshopWidgetsComponent implements OnInit {
           userIds: result.value.employeesRole.userIds,
         },
       };
+
       const res = await this.subjectApi.request<GetingUsersServiceParams>(getUsersActionDod);
       if (res.isSuccess()) {
         this.users = res.value;
+      }
+    }
+    if (result.isFailure()) {
+      const err = result.value;
+      if (err.name === 'WorkshopForUserDoesntExistError') {
+        this.alert.openSnackBar(err.locale.text);
       }
     }
   }

@@ -1,8 +1,7 @@
 import {
   ChangeDetectionStrategy,
-  Component, Input, OnInit,
+  Component, Input,
 } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
 import { WorkshopAttrs } from 'cy-domain/src/workshop/domain-data/workshop/params';
 
@@ -12,14 +11,8 @@ import { WorkshopAttrs } from 'cy-domain/src/workshop/domain-data/workshop/param
   styleUrls: ['./style.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WorkshopComponent implements OnInit {
+export class WorkshopComponent {
   @Input() workshopData!: WorkshopAttrs;
 
   @Input() users!:UserAttrs[];
-
-  constructor(public dialog: MatDialog) {}
-
-  ngOnInit(): void {
-    console.log(this.workshopData);
-  }
 }

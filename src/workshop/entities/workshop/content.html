@@ -7,11 +7,3 @@
     <text-element class="workshop-el" label="Город:" [value]="workshopData.city"></text-element>
     <text-element class="workshop-el" label="Адресс:" [value]="workshopData.address"></text-element>
 </div>
-<accordion-component header="Сотрудники">
-   
-    <div class="user-cart" *ngFor="let user of users">
-        
-        <text-element label="Имя:" [value]="user.userProfile.firstName"></text-element>
-        <text-element label="Фамилия:" [value]="user.userProfile.lastName"></text-element>
-    </div>
-</accordion-component>

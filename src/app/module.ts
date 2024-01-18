@@ -26,6 +26,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorPageComponent } from 'app/pages/error-page/ui/component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AlertComponent } from 'app/shared/ui-kit/alert/component';
 import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
 
 const domainModuleStates: DomainModuleState[] = [
@@ -47,6 +49,7 @@ const domainModuleStates: DomainModuleState[] = [
     TextElementComponent,
     AccordionComponent,
     ErrorPageComponent,
+    AlertComponent,
   ],
   imports: [
     CommonModule,
@@ -59,9 +62,10 @@ const domainModuleStates: DomainModuleState[] = [
     MatDialogModule,
     MatInputModule,
     FormsModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
   ],
-  providers: [AppState, AuthGuard, {
+  providers: [AppState, AuthGuard, AlertComponent, {
     provide: 'domainModuleStates', useValue: domainModuleStates,
   },
   {
