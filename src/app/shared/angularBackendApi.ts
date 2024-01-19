@@ -13,6 +13,7 @@ import { ComponentResult } from './types';
 export abstract class AngularBackendApi extends BackendApi {
   router: Router = inject(Router);
 
+  // eslint-disable-next-line no-useless-constructor
   constructor(@Inject('logger') logger: Logger) {
     super(logger);
   }
@@ -21,7 +22,7 @@ export abstract class AngularBackendApi extends BackendApi {
   | GeneralCommandServiceParams>(
     actionDod: SERVICE_PARAMS['actionDod'],
   ): Promise<ComponentResult<SERVICE_PARAMS>> {
-    const jwtToken = localStorage.getItem('accessToken') ?? undefined;
+    const jwtToken = localStorage.getItem('accessToken') ?? '';
     const result = await super.request(actionDod, jwtToken);
     if (result.isFailure()) {
       const errName = (result.value as ServiceBaseErrors).name;
