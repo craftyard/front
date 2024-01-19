@@ -2,12 +2,13 @@ import {
   AfterContentInit, Component, ElementRef, Inject, NgZone, ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularBackendApi } from 'app/shared/angularBackendApi';
-import { AppState } from 'app/shared/states/app-state';
-import { AlertComponent } from 'app/shared/ui-kit/alert/component';
+
 import { TelegramAuthDTO } from 'cy-domain/src/subject/domain-data/user/user-authentification/a-params';
 import { UserAuthentificationActionDod, UserAuthentificationServiceParams } from 'cy-domain/src/subject/domain-data/user/user-authentification/s-params';
 import { Logger } from 'rilata/src/common/logger/logger';
+import { AppState } from '../../../shared/states/app-state';
+import { AlertComponent } from '../../../shared/ui-kit/alert/component';
+import { AngularBackendApi } from '../../../shared/angularBackendApi';
 
 @Component({
   selector: 'login-btn',
