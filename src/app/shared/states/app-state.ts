@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
-import { TreeItem } from 'app/entities/tree-item/model/type';
-import { DomainModuleState } from 'app/shared/states/domain-module-state';
 import { TelegramAuthDTO } from 'cy-domain/src/subject/domain-data/user/user-authentification/a-params';
+import { TreeItem } from '../../entities/tree-item/model/type';
+import { DomainModuleState } from './domain-module-state';
 
 @Injectable({
   providedIn: 'root',
@@ -32,8 +32,9 @@ export class AppState {
     this.appMode$.next(window.innerWidth > 768 ? 'browser' : 'mobile');
   }
 
-  public setUser(user: TelegramAuthDTO): void {
+  public setUser(accessToken: string, user:TelegramAuthDTO): void {
     this.appUser$.next(user);
+    localStorage.setItem('accessToken', accessToken);
     localStorage.setItem('user', JSON.stringify(user));
     this.router.navigate(['/myWorkshop']);
   }

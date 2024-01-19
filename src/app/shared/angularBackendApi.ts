@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-constructor */
 import { BackendApi } from 'rilata/src/app/backend-api/backend-api';
 import { ServiceBaseErrors } from 'rilata/src/app/service/error-types';
 import { GeneralQueryServiceParams, GeneralCommandServiceParams, ServiceResult } from 'rilata/src/app/service/types';
@@ -21,7 +22,7 @@ export abstract class AngularBackendApi extends BackendApi {
   | GeneralCommandServiceParams>(
     actionDod: SERVICE_PARAMS['actionDod'],
   ): Promise<ServiceResult<SERVICE_PARAMS>> {
-    const jwtToken = localStorage.getItem('user') ?? '';
+    const jwtToken = localStorage.getItem('accessToken') ?? '';
     const result = await super.request(actionDod, jwtToken);
     if (result.isFailure()) {
       const errName = (result.value as ServiceBaseErrors).name;

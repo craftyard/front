@@ -1,0 +1,10 @@
+<div *ngIf="workshopData" >
+    <workshop-entity [workshopData]="workshopData">
+    </workshop-entity>
+    <accordion-component header="Сотрудники">
+        <user-info-entities [users]="users"></user-info-entities>
+    </accordion-component>
+</div>
+<div *ngIf="!workshopData">
+    <h1>Мастерская не найдена</h1>
+</div>

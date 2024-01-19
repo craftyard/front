@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from 'app/shared/states/app-state';
-import { TreeItem } from 'app/entities/tree-item/model/type';
+import { AppState } from '../../shared/states/app-state';
+import { TreeItem } from '../../entities/tree-item/model/type';
 
 @Component({
   selector: 'app-tree',

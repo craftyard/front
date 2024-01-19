@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TreeItem } from 'app/entities/tree-item/model/type';
+import { TreeItem } from '../model/type';
 
 @Component({
   selector: 'tree-item',

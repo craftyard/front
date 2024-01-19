@@ -1,33 +1,18 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import {
+  ChangeDetectionStrategy,
+  Component, Input,
+} from '@angular/core';
+import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
+import { WorkshopAttrs } from 'cy-domain/src/workshop/domain-data/workshop/params';
 
 @Component({
   selector: 'workshop-entity',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WorkshopComponent {
-  workshopData = {
-    name: 'Renat',
-    adress: '4-й микрорайон, 4а',
-    city: 'Уральск',
+  @Input() workshopData!: WorkshopAttrs;
 
-  };
-
-  users = [
-    {
-      firstName: 'Ренат',
-      lastName: 'Сагынгалиев',
-    },
-    {
-      firstName: 'Дамир',
-      lastName: 'Кубиев',
-    },
-    {
-      firstName: 'Сагындык',
-      lastName: 'Ислям',
-    },
-  ];
-
-  constructor(public dialog: MatDialog) {}
+  @Input() users!:UserAttrs[];
 }
