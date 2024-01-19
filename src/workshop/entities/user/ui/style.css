@@ -1,0 +1,14 @@
+.user-cart {
+    border: 1px solid rgb(165, 160, 160);
+    margin: 7px 0;
+    padding: 10px 0 0 10px;
+    border-radius: 10px;
+    width: 300px;
+    font-size: 17px;
+}
+
+@media (max-width:760px) {
+    .user-cart {
+        width: 96%;
+    }
+}

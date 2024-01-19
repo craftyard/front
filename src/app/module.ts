@@ -3,35 +3,32 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { LogOutComponent } from 'app/feature/logout-btn/ui/component';
-import { CurrentUserComponent } from 'app/entities/user-header/ui/component';
-import { LoginButtonComponent } from 'app/feature/login-btn/ui/component';
-import { AuthPageComponent } from 'app/pages/auth/ui/component';
+
 import { CommonModule } from '@angular/common';
-import { AppHeader } from 'app/widgets/app-header/component';
-import { AppComponent } from 'app/component';
-import { AppState } from 'app/shared/states/app-state';
-import { AppTreeComponent } from 'app/widgets/app-tree/component';
-import { AppPageComponent } from 'app/pages/app-page/ui/component';
-import { AppRoutingModule } from 'app/router';
-import { SubjectModuleState } from 'subject/module-state';
-import { AuthGuard } from 'app/shared/guards/auth.guard';
-import { DomainModuleState } from 'app/shared/states/domain-module-state';
-import { WorkShopModuleState } from 'workshop/module-state';
-import { TreeItemComponent } from 'app/entities/tree-item/ui/component';
+
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { TextElementComponent } from 'app/shared/ui-kit/text-element/component';
-import { AccordionComponent } from 'app/shared/ui-kit/accordion/component';
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ErrorPageComponent } from 'app/pages/error-page/ui/component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
-
-const domainModuleStates: DomainModuleState[] = [
-  new WorkShopModuleState(),
-  new SubjectModuleState(),
-];
+import { AppComponent } from './component';
+import { AppHeader } from './widgets/app-header/component';
+import { AppTreeComponent } from './widgets/app-tree/component';
+import { LogOutComponent } from './feature/logout-btn/ui/component';
+import { CurrentUserComponent } from './entities/user-header/ui/component';
+import { LoginButtonComponent } from './feature/login-btn/ui/component';
+import { AuthPageComponent } from './pages/auth/ui/component';
+import { AppPageComponent } from './pages/app-page/ui/component';
+import { TreeItemComponent } from './entities/tree-item/ui/component';
+import { TextElementComponent } from './shared/ui-kit/text-element/component';
+import { AccordionComponent } from './shared/ui-kit/accordion/component';
+import { ErrorPageComponent } from './pages/error-page/ui/component';
+import { AlertComponent } from './shared/ui-kit/alert/component';
+import { AppRoutingModule } from './router';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { AppState } from './shared/states/app-state';
 
 @NgModule({
   declarations: [
@@ -47,6 +44,7 @@ const domainModuleStates: DomainModuleState[] = [
     TextElementComponent,
     AccordionComponent,
     ErrorPageComponent,
+    AlertComponent,
   ],
   imports: [
     CommonModule,
@@ -59,16 +57,15 @@ const domainModuleStates: DomainModuleState[] = [
     MatDialogModule,
     MatInputModule,
     FormsModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
   ],
-  providers: [AppState, AuthGuard, {
-    provide: 'domainModuleStates', useValue: domainModuleStates,
-  },
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true,
-  }],
+  providers: [AppState, AuthGuard, AlertComponent,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    }],
   exports: [
     TextElementComponent,
     AccordionComponent,

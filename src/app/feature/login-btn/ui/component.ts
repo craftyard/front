@@ -2,11 +2,13 @@ import {
   AfterContentInit, Component, ElementRef, Inject, NgZone, ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularBackendApi } from 'app/shared/angularBackendApi';
-import { AppState } from 'app/shared/states/app-state';
+
 import { TelegramAuthDTO } from 'cy-domain/src/subject/domain-data/user/user-authentification/a-params';
 import { UserAuthentificationActionDod, UserAuthentificationServiceParams } from 'cy-domain/src/subject/domain-data/user/user-authentification/s-params';
 import { Logger } from 'rilata/src/common/logger/logger';
+import { AppState } from '../../../shared/states/app-state';
+import { AlertComponent } from '../../../shared/ui-kit/alert/component';
+import { AngularBackendApi } from '../../../shared/angularBackendApi';
 
 @Component({
   selector: 'login-btn',
@@ -25,6 +27,7 @@ export class LoginButtonComponent implements AfterContentInit {
     private appstate: AppState,
     @Inject('logger') private logger: Logger,
     private router: Router,
+    private alert:AlertComponent,
   ) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).onTelegramAuth = (user: TelegramAuthDTO) => {
@@ -40,14 +43,15 @@ export class LoginButtonComponent implements AfterContentInit {
         const result = await this.userAuthApi.request<UserAuthentificationServiceParams>(actionDod);
         if (result.isFailure()) {
           const err = result.value;
-          if (err.meta.name === 'TelegramUserDoesNotExistError') {
-            this.router.navigate(['/error-page/TelegramUserDoesNotExistError']);
+          if (err.name === 'TelegramUserDoesNotExistError') {
+            this.alert.openSnackBar(err.locale.text);
           }
-          if (err.meta.name === 'ManyAccountNotSupportedError') {
-            this.router.navigate(['/error-page/ManyAccountNotSupportedError']);
+          if (err.name === 'ManyAccountNotSupportedError') {
+            this.alert.openSnackBar(err.locale.text);
           }
-        } else {
-          this.appstate.setUser(user);
+        }
+        if (result.isSuccess()) {
+          this.appstate.setUser(result.value.accessToken, user);
         }
       });
     };

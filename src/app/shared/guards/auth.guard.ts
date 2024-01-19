@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { AppState } from 'app/shared/states/app-state';
+import { AppState } from '../states/app-state';
 
 @Injectable()
 export class AuthGuard {
@@ -10,7 +10,7 @@ export class AuthGuard {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
   ): boolean {
-    if (localStorage.getItem('user')) {
+    if (localStorage.getItem('accessToken')) {
       return true;
     }
     this.appService.goLogin();
