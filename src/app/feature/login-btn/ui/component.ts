@@ -40,10 +40,10 @@ export class LoginButtonComponent implements AfterContentInit {
         const result = await this.userAuthApi.request<UserAuthentificationServiceParams>(actionDod);
         if (result.isFailure()) {
           const err = result.value;
-          if (err.meta.name === 'TelegramUserDoesNotExistError') {
+          if (err.name === 'TelegramUserDoesNotExistError') {
             this.router.navigate(['/error-page/TelegramUserDoesNotExistError']);
           }
-          if (err.meta.name === 'ManyAccountNotSupportedError') {
+          if (err.name === 'ManyAccountNotSupportedError') {
             this.router.navigate(['/error-page/ManyAccountNotSupportedError']);
           }
         } else {

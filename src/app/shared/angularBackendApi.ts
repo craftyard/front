@@ -12,6 +12,7 @@ import { Inject, Injectable, inject } from '@angular/core';
 export abstract class AngularBackendApi extends BackendApi {
   router: Router = inject(Router);
 
+  // eslint-disable-next-line no-useless-constructor
   constructor(@Inject('logger') logger: Logger) {
     super(logger);
   }
@@ -20,11 +21,11 @@ export abstract class AngularBackendApi extends BackendApi {
   | GeneralCommandServiceParams>(
     actionDod: SERVICE_PARAMS['actionDod'],
   ): Promise<ServiceResult<SERVICE_PARAMS>> {
-    const jwtToken = localStorage.getItem('user') ?? undefined;
+    const jwtToken = localStorage.getItem('user') ?? '';
     const result = await super.request(actionDod, jwtToken);
     if (result.isFailure()) {
-      const errName = (result.value as ServiceBaseErrors).meta.name;
-      const redirectErrorNames: ServiceBaseErrors['meta']['name'][] = [
+      const errName = (result.value as ServiceBaseErrors).name;
+      const redirectErrorNames: ServiceBaseErrors['name'][] = [
         'Internal error',
         'Permission denied',
         'Not found',

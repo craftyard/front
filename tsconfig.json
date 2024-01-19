@@ -4,7 +4,6 @@
   "compilerOptions": {
   "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
-    "types": ["bun-types"],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
