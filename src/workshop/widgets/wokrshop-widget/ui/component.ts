@@ -11,6 +11,7 @@ import { WorkshopApi } from '../../../shared/backend-api/workshop-api.service';
 import { SubjectApi } from '../../../../subject/shared/backend-api/subject-api.service';
 import { AlertComponent } from '../../../../app/shared/ui-kit/alert/component';
 import { AddModelComponent } from '../../../feature/add-model/ui/component';
+import { AppState } from '../../../../app/shared/states/app-state';
 
 @Component({
   selector: 'workshop-widget',
@@ -23,6 +24,7 @@ export class WorkshopWidgetComponent implements OnInit {
   private workshopApi: WorkshopApi,
   private subjectApi: SubjectApi,
    private alert:AlertComponent,
+   private appState: AppState,
   ) {}
 
   workshopData!: WorkshopAttrs;
@@ -46,6 +48,10 @@ export class WorkshopWidgetComponent implements OnInit {
     const result = await this.workshopApi.request<GetMyWorkshopServiceParams>(actionDod);
     if (result.isSuccess()) {
       this.workshopData = result.value;
+      console.log('Setting workshop data:', this.workshopData);
+      this.appState.setCurrentWorskhop(
+        { name: result.value.name, workshopId: result.value.workshopId },
+      );
       const getUsersActionDod: GetUsersActionDod = {
         meta: {
           name: 'getUsers',
