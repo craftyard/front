@@ -46,6 +46,12 @@ export class LoginButtonComponent implements AfterContentInit {
           if (err.name === 'TelegramUserDoesNotExistError') {
             this.alert.openSnackBar(err.locale.text);
           }
+          if (err.name === 'TelegramHashNotValidError') {
+            this.alert.openSnackBar(err.locale.text);
+          }
+          if (err.name === 'TelegramAuthDateNotValidError') {
+            this.alert.openSnackBar(err.locale.text);
+          }
           if (err.name === 'ManyAccountNotSupportedError') {
             this.alert.openSnackBar(err.locale.text);
           }
