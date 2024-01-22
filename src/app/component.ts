@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TelegramAuthDTO } from 'cy-domain/src/subject/domain-data/user/user-authentification/a-params';
+import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
 import { AppState } from './shared/states/app-state';
 
 @Component({
@@ -10,7 +11,7 @@ import { AppState } from './shared/states/app-state';
 export class AppComponent implements OnInit {
   appMode: 'mobile' | 'browser' = 'browser';
 
-  appUser: TelegramAuthDTO | undefined = undefined;
+  currentUser: UserAttrs | undefined = undefined;
 
   // eslint-disable-next-line no-useless-constructor, no-empty-function
   constructor(private appState: AppState) { }
@@ -19,8 +20,8 @@ export class AppComponent implements OnInit {
     this.appState.appMode$.subscribe((mode) => {
       this.appMode = mode;
     });
-    this.appState.appUser$.subscribe((user) => {
-      this.appUser = user;
+    this.appState.currentUser$.subscribe((user) => {
+      this.currentUser = user;
     });
   }
 }

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { TelegramAuthDTO } from 'cy-domain/src/subject/domain-data/user/user-authentification/a-params';
+import { Component, OnInit } from '@angular/core';
+import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
 import { AppState } from '../../../shared/states/app-state';
 
 @Component({
@@ -7,12 +7,21 @@ import { AppState } from '../../../shared/states/app-state';
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class CurrentUserComponent {
-  appUser: TelegramAuthDTO | undefined = undefined;
+export class CurrentUserComponent implements OnInit {
+  currentUser: UserAttrs | undefined = undefined;
+
+  workshopName: {name:string, workshopId:string} | undefined = undefined;
 
   constructor(private appState: AppState) {
-    this.appState.appUser$.subscribe((user) => {
-      this.appUser = user;
+
+  }
+
+  ngOnInit(): void {
+    this.appState.currentWorskhop$.subscribe((workshopName) => {
+      console.log(workshopName);
+    });
+    this.appState.currentUser$.subscribe((user) => {
+      this.currentUser = user;
     });
   }
 }

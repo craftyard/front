@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { TelegramAuthDTO } from 'cy-domain/src/subject/domain-data/user/user-authentification/a-params';
 import { UserAuthentificationActionDod, UserAuthentificationServiceParams } from 'cy-domain/src/subject/domain-data/user/user-authentification/s-params';
 import { Logger } from 'rilata/src/common/logger/logger';
+import { GetUserActionDod, GetingUserServiceParams } from 'cy-domain/src/subject/domain-data/user/get-user/s-params';
 import { AppState } from '../../../shared/states/app-state';
 import { AlertComponent } from '../../../shared/ui-kit/alert/component';
 import { AngularBackendApi } from '../../../shared/angularBackendApi';
@@ -23,6 +24,7 @@ export class LoginButtonComponent implements AfterContentInit {
 
   constructor(
     @Inject('userAuthApi') private userAuthApi: AngularBackendApi,
+    @Inject('mockSubjectApi') private mockSubjectApi:AngularBackendApi,
     private ngZone: NgZone,
     private appstate: AppState,
     @Inject('logger') private logger: Logger,
@@ -57,7 +59,28 @@ export class LoginButtonComponent implements AfterContentInit {
           }
         }
         if (result.isSuccess()) {
-          this.appstate.setUser(result.value.accessToken, user);
+          this.appstate.setAccessToken(result.value.accessToken);
+          const getUserActionDod : GetUserActionDod = {
+            meta: {
+              name: 'getUser',
+              actionId: crypto.randomUUID(),
+              domainType: 'action',
+            },
+            attrs: {
+              userId: { onMe: true },
+            },
+          };
+          const userResult = await this.mockSubjectApi
+            .request<GetingUserServiceParams>(getUserActionDod);
+          if (userResult.isFailure()) {
+            const err = userResult.value;
+            if (err.name === 'UserDoesNotExistError') {
+              this.alert.openSnackBar(err.locale.text);
+            }
+          }
+          if (userResult.isSuccess()) {
+            this.appstate.setCurrentUser(userResult.value);
+          }
         }
       });
     };

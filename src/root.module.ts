@@ -11,6 +11,7 @@ import { SubjectApi } from './subject/shared/backend-api/subject-api.service';
 import { DomainModuleState } from './app/shared/states/domain-module-state';
 import { WorkShopModuleState } from './workshop/module-state';
 import { SubjectModuleState } from './subject/module-state';
+import { SubjectBackendApiMock } from './subject/shared/backend-api/subject-backend-mock';
 
 const domainModuleStates: DomainModuleState[] = [
   new WorkShopModuleState(),
@@ -31,6 +32,9 @@ const domainModuleStates: DomainModuleState[] = [
     { provide: 'logger', useClass: ConsoleLogger },
     {
       provide: 'userAuthApi', useClass: SubjectApi,
+    },
+    {
+      provide: 'mockSubjectApi', useClass: SubjectBackendApiMock,
     },
     {
       provide: 'domainModuleStates', useValue: domainModuleStates,
