@@ -22,6 +22,11 @@ const routes: Routes = [
         loadChildren: () => import('../subject/module').then((m) => m.SubjectModule),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'modelspage',
+        loadChildren: () => import('../model/module').then((m) => m.ModelModule),
+        canActivate: [AuthGuard],
+      },
     ],
   },
   { path: 'error-page/:id', component: ErrorPageComponent },
