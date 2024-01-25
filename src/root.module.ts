@@ -12,10 +12,12 @@ import { DomainModuleState } from './app/shared/states/domain-module-state';
 import { WorkShopModuleState } from './workshop/module-state';
 import { SubjectModuleState } from './subject/module-state';
 import { SubjectBackendApiMock } from './subject/shared/backend-api/subject-backend-mock';
+import { ModelModuleState } from './model/module-state';
 
 const domainModuleStates: DomainModuleState[] = [
   new WorkShopModuleState(),
   new SubjectModuleState(),
+  new ModelModuleState(),
 ];
 @NgModule({
   declarations: [
