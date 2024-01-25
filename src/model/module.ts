@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppModule } from '../app/module';
-import { ModelsWidgetComponent } from './widgetes/model-widget/ui/component';
+import { ModelsWidgetComponent } from './widgetes/models-widget/ui/component';
 import { ModuleRoutingModule } from './router';
 
 @NgModule({

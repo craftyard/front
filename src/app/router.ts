@@ -18,12 +18,12 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: 'subjectpage',
+        path: 'subject',
         loadChildren: () => import('../subject/module').then((m) => m.SubjectModule),
         canActivate: [AuthGuard],
       },
       {
-        path: 'modelspage',
+        path: 'models',
         loadChildren: () => import('../model/module').then((m) => m.ModelModule),
         canActivate: [AuthGuard],
       },
