@@ -3,7 +3,7 @@ import { TreeItem } from '../app/entities/tree-item/model/type';
 
 export class SubjectModuleState implements DomainModuleState {
   private treeItems:TreeItem[] = [
-    { title: 'сотрудники', routerLink: 'subjectpage' },
+    { title: 'сотрудники', routerLink: 'subject' },
   ];
 
   getTreeItems(): TreeItem[] {
