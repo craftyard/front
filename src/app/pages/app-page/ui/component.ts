@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TelegramAuthDTO } from 'cy-domain/src/subject/domain-data/user/user-authentification/a-params';
 import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
 import { AppState } from '../../../shared/states/app-state';
 

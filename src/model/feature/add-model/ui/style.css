@@ -1,0 +1,25 @@
+.form {
+    min-width: 150px;
+    max-width: 500px;
+}
+
+.form-full-width {
+    width: 100%;
+}
+
+.mat-typography {
+    padding-top: 10px;
+
+}
+mat-dialog-content {
+    max-width: 500px;
+} 
+mat-dialog-actions {
+    padding-right: 24px;
+}
+.error{
+    color: red;
+}
+.invalid-field {
+    border-color: #f44336;
+}

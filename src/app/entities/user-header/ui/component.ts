@@ -18,7 +18,6 @@ export class CurrentUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.appState.currentWorskhop$.subscribe((workshopName) => {
-      console.log(workshopName);
     });
     this.appState.currentUser$.subscribe((user) => {
       this.currentUser = user;

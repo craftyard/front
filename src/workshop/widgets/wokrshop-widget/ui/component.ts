@@ -10,7 +10,6 @@ import { WorkshopAttrs } from 'cy-domain/src/workshop/domain-data/workshop/param
 import { WorkshopApi } from '../../../shared/backend-api/workshop-api.service';
 import { SubjectApi } from '../../../../subject/shared/backend-api/subject-api.service';
 import { AlertComponent } from '../../../../app/shared/ui-kit/alert/component';
-import { AddModelComponent } from '../../../feature/add-model/ui/component';
 import { AppState } from '../../../../app/shared/states/app-state';
 
 @Component({
@@ -30,10 +29,6 @@ export class WorkshopWidgetComponent implements OnInit {
   workshopData!: WorkshopAttrs;
 
   users!:UserAttrs[];
-
-  openDialog() {
-    const dialogRef = this.dialog.open(AddModelComponent);
-  }
 
   async ngOnInit(): Promise<void> {
     const actionDod: GetMyWorkshopActionDod = {
