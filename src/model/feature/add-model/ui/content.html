@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Добавить модель</h2>
+
+<mat-dialog-content class="mat-typography">
+   
+<form [formGroup]="formGroup">
+    
+<mat-form-field appearance="outline" class="form-full-width" floatLabel="always">
+    <mat-label>Название</mat-label>
+    <p style="color: red;  user-select: none;" *ngFor="let err of nameErrors | async">* {{err}}</p>
+        <input  matInput formControlName="name">
+        
+    </mat-form-field>
+    <mat-form-field style="width: 100%;" appearance="outline">
+        <mat-label>Категория</mat-label>
+        <p style="color: red; user-select: none;" *ngFor="let err of categoryErrors | async">{{err}}</p>
+        <mat-select formControlName="category">
+            <mat-option *ngFor="let category of categories" [value]="category">
+                {{ category }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+</form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button id="btn-cancel" mat-flat-button color="primary"mat-dialog-close (click)="onCancel()">Отменить</button>
+    <button id="btn-add" mat-flat-button color="primary" [mat-dialog-close]="true" [disabled]="!formGroup.valid" (click)="onSubmit()">Добавить</button>
+
+</mat-dialog-actions>

@@ -12,6 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
 import { AuthInterceptor } from './shared/interceptor/auth.interceptor';
 import { AppComponent } from './component';
 import { AppHeader } from './widgets/app-header/component';
@@ -74,6 +75,7 @@ import { AppState } from './shared/states/app-state';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSelectModule,
   ],
 })
 export class AppModule { }

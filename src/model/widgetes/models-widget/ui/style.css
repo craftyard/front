@@ -1,0 +1,16 @@
+#menu_title{
+    display: flex;
+    justify-content: space-between;
+}
+
+#mobile-btn{
+    width: 90%;
+    position:fixed;
+    bottom: 20px;
+    height: 40px;
+}
+@media(max-width:500px) {
+    #mobile-btn{
+        width: 85%;
+    }
+}
