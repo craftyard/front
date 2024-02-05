@@ -1,35 +1,44 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { DTO } from 'rilata/src/domain/dto';
 import {
-  ArrayFieldErrors, FieldErrors, RuleErrors,
+  ArrayFieldErrors, FieldErrors, RuleErrors, ValidatorMap,
 } from 'rilata/src/domain/validator/field-validator/types';
 import { ValidationRule } from 'rilata/src/domain/validator/rules/validation-rule';
-import { DTO } from 'rilata/src/domain/dto';
-import { Validators } from '@angular/forms';
-import { ValidatorFormModalComponent } from './ui-kit/validator-modal/component';
 
-class ValidatorUtils {
+@Component({
+  template: '<h1></h1>',
+})
+export abstract class ValidatedModalForm<ACT_ATTRS extends DTO> implements OnInit {
   ERROR_ATTR_PREFIX = 'Errors';
 
-  bindValidators(
-    formComponent: ValidatorFormModalComponent<DTO>,
-  ): void {
-    const { formGroup } = formComponent;
+  formGroup!: FormGroup;
 
-    Object.keys(formGroup.controls).forEach((attrName) => {
-      const { isRequired } = formComponent.validatorMap[attrName];
+  abstract controls: Record<keyof ACT_ATTRS, any>;
+
+  abstract validatorMap: ValidatorMap<ACT_ATTRS>;
+
+  constructor(
+    protected formBuilder: FormBuilder,
+    protected dialogRef: MatDialogRef<any>,
+  ) {}
+
+  ngOnInit(): void {
+    this.formGroup = this.formBuilder.group(this.controls);
+    Object.keys(this.formGroup.controls).forEach((attrName) => {
+      const { isRequired } = this.validatorMap[attrName];
       if (isRequired) {
-        formGroup.get(attrName)?.addValidators(Validators.required);
+        this.formGroup.get(attrName)?.setValidators([Validators.required]);
       }
-      formGroup.get(attrName)?.valueChanges.subscribe((value: string) => {
-        this.validateAttrs(attrName, value, formComponent);
+
+      this.formGroup.get(attrName)?.valueChanges.subscribe((value: string) => {
+        this.validateAttrs(attrName, value, this);
       });
     });
   }
 
-  private validateAttrs(
-    attrName: string,
-    value: unknown,
-    formComponent: ValidatorFormModalComponent<DTO>,
-  ): void {
+  private validateAttrs(attrName: string, value: unknown, formComponent: this): void {
     const targetErrorAttrName = `${attrName}${this.ERROR_ATTR_PREFIX}`;
     const targetErrorAttr = (formComponent as Record<string, any>)[targetErrorAttrName];
 
@@ -67,6 +76,15 @@ class ValidatorUtils {
     });
     return errors;
   }
-}
 
-export const validatorUtils = new ValidatorUtils();
+  onSubmit(): void {
+    if (this.formGroup.valid) {
+      const formValues = this.formGroup.value;
+      this.dialogRef.close(formValues);
+    }
+  }
+
+  onCancel(): void {
+    this.dialogRef.close();
+  }
+}

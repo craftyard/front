@@ -5,14 +5,14 @@ import { ModelCategory } from 'cy-domain/src/model/domain-data/params';
 import { modelAttrsVMap } from 'cy-domain/src/model/domain-data/v-map';
 import { BehaviorSubject } from 'rxjs';
 import { ValidatorMap } from 'rilata/src/domain/validator/field-validator/types';
-import { ValidatorFormModalComponent } from '../../../../app/shared/ui-kit/validator-modal/component';
+import { ValidatedModalForm } from '../../../../app/shared/ui-kit/validated-modal-from/validated-modal-from';
 
 @Component({
   selector: 'add-model-feature',
   templateUrl: './content.html',
   styleUrls: ['./style.css'],
 })
-export class AddModelComponent extends ValidatorFormModalComponent
+export class AddModelComponent extends ValidatedModalForm
 <{name: string, category: string}> {
   nameErrors = new BehaviorSubject<string[] | undefined>(undefined);
 
