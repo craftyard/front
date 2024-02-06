@@ -5,6 +5,6 @@ import { AngularBackendApi } from '../../../app/shared/angularBackendApi';
 @Injectable({
   providedIn: 'root',
 })
-export class WorkshopApi extends AngularBackendApi {
+export class ModelApi extends AngularBackendApi {
   protected moduleUrl: string = MODEL_MODULE_URL;
 }
