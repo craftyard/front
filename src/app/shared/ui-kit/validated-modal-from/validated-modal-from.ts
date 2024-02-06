@@ -8,7 +8,7 @@ import {
 import { ValidationRule } from 'rilata/src/domain/validator/rules/validation-rule';
 
 @Component({
-  template: '<h1></h1>',
+  template: '',
 })
 export abstract class ValidatedModalForm<ACT_ATTRS extends DTO> implements OnInit {
   ERROR_ATTR_PREFIX = 'Errors';
