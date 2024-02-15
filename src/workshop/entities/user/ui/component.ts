@@ -7,5 +7,5 @@ import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
   styleUrls: ['./style.css'],
 })
 export class UserProfileComponent {
-  @Input() users!:UserAttrs[];
+  @Input() employees!:UserAttrs[];
 }

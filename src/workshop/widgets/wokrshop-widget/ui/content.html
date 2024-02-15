@@ -2,7 +2,7 @@
     <workshop-entity [workshopData]="workshopData">
     </workshop-entity>
     <accordion-component header="Сотрудники">
-        <user-info-entities [users]="users"></user-info-entities>
+        <user-info-entities [employees]="workshopData.employeesRole"></user-info-entities>
     </accordion-component>
 </div>
 <div *ngIf="!workshopData">

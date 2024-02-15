@@ -2,13 +2,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { GetMyWorkshopActionDod, GetMyWorkshopServiceParams } from 'cy-domain/src/workshop/domain-data/workshop/get-my-workshop/s-params';
-
-import { GetUsersActionDod, GetingUsersServiceParams } from 'cy-domain/src/subject/domain-data/user/get-users/s-params';
 import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
-import { WorkshopAttrs } from 'cy-domain/src/workshop/domain-data/workshop/params';
+import { WorkshopOutAttrs } from 'cy-domain/src/workshop/domain-data/workshop/params';
+import { FindWorkshopByUserIdActionDod, FindWorkshopByUserIdServiceParams } from 'cy-domain/src/workshop/domain-data/workshop/find-workshop-by-user-id/s-params';
 import { WorkshopApi } from '../../../shared/backend-api/workshop-api.service';
-import { SubjectApi } from '../../../../subject/shared/backend-api/subject-api.service';
 import { AlertComponent } from '../../../../app/shared/ui-kit/alert/component';
 import { AppState } from '../../../../app/shared/states/app-state';
 
@@ -21,52 +18,38 @@ export class WorkshopWidgetComponent implements OnInit {
   constructor(
   public dialog: MatDialog,
   private workshopApi: WorkshopApi,
-  private subjectApi: SubjectApi,
    private alert:AlertComponent,
    private appState: AppState,
   ) {}
 
-  workshopData!: WorkshopAttrs;
+  workshopData: WorkshopOutAttrs| undefined = undefined;
 
-  users!:UserAttrs[];
+  CurrentUserID: string | undefined = undefined;
 
   async ngOnInit(): Promise<void> {
-    const actionDod: GetMyWorkshopActionDod = {
-      meta: {
-        name: 'getMyWorkshop',
-        actionId: crypto.randomUUID(),
-        domainType: 'action',
-      },
-      attrs: {},
-    };
-
-    const result = await this.workshopApi.request<GetMyWorkshopServiceParams>(actionDod);
-    if (result.isSuccess()) {
-      this.workshopData = result.value;
-      console.log('Setting workshop data:', this.workshopData);
-      this.appState.setCurrentWorskhop(
-        { name: result.value.name, workshopId: result.value.workshopId },
-      );
-      const getUsersActionDod: GetUsersActionDod = {
+    this.appState.currentUser$.subscribe((user) => {
+      this.CurrentUserID = user?.userId;
+    });
+    if (this.CurrentUserID) {
+      const actionDod: FindWorkshopByUserIdActionDod = {
         meta: {
-          name: 'getUsers',
+          name: 'findWorkshopByUserId',
           actionId: crypto.randomUUID(),
           domainType: 'action',
         },
         attrs: {
-          userIds: result.value.employeesRole.userIds,
+          userId: this.CurrentUserID,
         },
       };
-
-      const res = await this.subjectApi.request<GetingUsersServiceParams>(getUsersActionDod);
-      if (res.isSuccess()) {
-        this.users = res.value;
+      const result = await this.workshopApi.request<FindWorkshopByUserIdServiceParams>(actionDod);
+      if (result.isSuccess()) {
+        this.workshopData = result.value;
       }
-    }
-    if (result.isFailure()) {
-      const err = result.value;
-      if (err.name === 'WorkshopForUserDoesntExistError') {
-        this.alert.openSnackBar(err.locale.text);
+      if (result.isFailure()) {
+        const err = result.value;
+        if (err.name === 'Bad request') {
+          this.alert.openSnackBar(err.locale.text);
+        }
       }
     }
   }
