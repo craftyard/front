@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
+import { UserProfile } from 'cy-domain/src/subject/domain-data/user/params';
 
 @Component({
   selector: 'user-info-entities',
@@ -7,5 +7,5 @@ import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
   styleUrls: ['./style.css'],
 })
 export class UserProfileComponent {
-  @Input() users!:UserAttrs[];
+  @Input() userProfile!:UserProfile[];
 }

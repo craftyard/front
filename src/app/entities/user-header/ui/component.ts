@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
+import { CurrentUser } from 'cy-domain/src/subject/domain-data/user/get-current-user/s-params';
 import { AppState } from '../../../shared/states/app-state';
 
 @Component({
@@ -8,17 +8,11 @@ import { AppState } from '../../../shared/states/app-state';
   styleUrls: ['./style.css'],
 })
 export class CurrentUserComponent implements OnInit {
-  currentUser: UserAttrs | undefined = undefined;
+  currentUser: CurrentUser | undefined = undefined;
 
-  workshopName: {name:string, workshopId:string} | undefined = undefined;
-
-  constructor(private appState: AppState) {
-
-  }
+  constructor(private appState: AppState) { }
 
   ngOnInit(): void {
-    this.appState.currentWorskhop$.subscribe((workshopName) => {
-    });
     this.appState.currentUser$.subscribe((user) => {
       this.currentUser = user;
     });

@@ -36,7 +36,7 @@ const domainModuleStates: DomainModuleState[] = [
       provide: 'userAuthApi', useClass: SubjectApi,
     },
     {
-      provide: 'mockSubjectApi', useClass: SubjectBackendApiMock,
+      provide: 'subjectApi', useClass: SubjectBackendApiMock,
     },
     {
       provide: 'domainModuleStates', useValue: domainModuleStates,
