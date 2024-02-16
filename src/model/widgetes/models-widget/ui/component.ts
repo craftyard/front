@@ -4,6 +4,7 @@ import { GetWorkshopModelsActionDod, GetingWorkshopModelsServiceParams } from 'c
 import { ModelBackendApiMock } from '../../../shared/backend-api/model-backend-mock';
 import { AddModelComponent } from '../../../feature/add-model/ui/component';
 import { AppState } from '../../../../app/shared/states/app-state';
+import { AlertComponent } from '../../../../app/shared/ui-kit/alert/component';
 
 @Component({
   selector: 'models-widget',
@@ -13,13 +14,14 @@ import { AppState } from '../../../../app/shared/states/app-state';
 export class ModelsWidgetComponent implements OnInit {
   appMode: 'mobile' | 'browser' = 'browser';
 
-  workshopId : string | undefined = undefined;
+  workshopId! : string;
 
   // eslint-disable-next-line no-useless-constructor, no-empty-function
   constructor(
     private appState: AppState,
     public dialog: MatDialog,
     private mockModelApi:ModelBackendApiMock,
+    private alert: AlertComponent,
   ) { }
 
   openDialog() {
@@ -30,6 +32,9 @@ export class ModelsWidgetComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    this.appState.currentUser$.subscribe((workId) => {
+      this.workshopId = workId!.workshopId;
+    });
     this.appState.appMode$.subscribe((mode) => {
       this.appMode = mode;
     });
@@ -40,7 +45,7 @@ export class ModelsWidgetComponent implements OnInit {
         domainType: 'action',
       },
       attrs: {
-        workshopId: 'a1b2c3d4-e5f6-g7h8-i9j10-k11l12m13n14',
+        workshopId: this.workshopId,
       },
     };
     const modelsResult = await this.mockModelApi.request<

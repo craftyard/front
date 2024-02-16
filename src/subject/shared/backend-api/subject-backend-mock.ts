@@ -20,6 +20,7 @@ export class SubjectBackendApiMock {
           lastName: 'Sagyngaliev',
         },
         workshopName: 'Gis expert',
+        workshopId: 'a1b2c3d4-e5f6-g7h8-i9j10-k11l12m13n14',
       };
       return success(result);
     }
