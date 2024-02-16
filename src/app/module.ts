@@ -30,6 +30,7 @@ import { AlertComponent } from './shared/ui-kit/alert/component';
 import { AppRoutingModule } from './router';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AppState } from './shared/states/app-state';
+import { CardItemComponent } from './shared/ui-kit/card/component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AppState } from './shared/states/app-state';
     AccordionComponent,
     ErrorPageComponent,
     AlertComponent,
+    CardItemComponent,
   ],
   imports: [
     CommonModule,
@@ -70,6 +72,7 @@ import { AppState } from './shared/states/app-state';
   exports: [
     TextElementComponent,
     AccordionComponent,
+    CardItemComponent,
     MatDialogModule,
     MatInputModule,
     MatButtonModule,

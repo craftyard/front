@@ -31,6 +31,12 @@ export class ModelBackendApiMock {
         name: 'Модель 3',
         category: 'Мебель',
       },
+      {
+        modelId: '3c4b5c6d-7e8f-9g10h-11i12-j13k14l15m16',
+        workshopId: 'a1b2c3d4-e5f6-g7h8-i9j10-k11l12m13n14',
+        name: 'Модель 3',
+        category: 'Мебель',
+      },
     ];
 
     return success(result);

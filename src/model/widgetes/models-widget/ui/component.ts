@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { GetWorkshopModelsActionDod, GetingWorkshopModelsServiceParams } from 'cy-domain/src/model/domain-data/model/get-models/s-params';
+import { ModelAttrs } from 'cy-domain/src/model/domain-data/params';
 import { ModelBackendApiMock } from '../../../shared/backend-api/model-backend-mock';
 import { AddModelComponent } from '../../../feature/add-model/ui/component';
 import { AppState } from '../../../../app/shared/states/app-state';
@@ -15,6 +16,8 @@ export class ModelsWidgetComponent implements OnInit {
   appMode: 'mobile' | 'browser' = 'browser';
 
   workshopId! : string;
+
+  workshopModels!: ModelAttrs[];
 
   // eslint-disable-next-line no-useless-constructor, no-empty-function
   constructor(
@@ -51,7 +54,7 @@ export class ModelsWidgetComponent implements OnInit {
     const modelsResult = await this.mockModelApi.request<
     GetingWorkshopModelsServiceParams>(actionDod);
     if (modelsResult.isSuccess()) {
-      console.log(modelsResult.value);
+      this.workshopModels = modelsResult.value;
     }
   }
 }
