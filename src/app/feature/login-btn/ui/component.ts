@@ -23,7 +23,7 @@ export class LoginButtonComponent implements AfterContentInit {
 
   constructor(
     @Inject('userAuthApi') private userAuthApi: AngularBackendApi,
-    @Inject('mockSubjectApi') private mockSubjectApi:AngularBackendApi,
+    @Inject('subjectApi') private subjectApi:AngularBackendApi,
     private ngZone: NgZone,
     private appstate: AppState,
     @Inject('logger') private logger: Logger,
@@ -67,10 +67,13 @@ export class LoginButtonComponent implements AfterContentInit {
             },
             attrs: {},
           };
-          const userResult = await this.mockSubjectApi
+          const userResult = await this.subjectApi
             .request<GetingCurrentUserServiceParams>(getСurrentUserActionDod);
           if (userResult.isSuccess()) {
             this.appstate.setCurrentUser(userResult.value);
+          } else {
+            this.logger.error('userResult никогда не должен возвращать ошибку', userResult.value);
+            this.alert.openSnackBar(userResult.value.locale.text);
           }
         }
       });

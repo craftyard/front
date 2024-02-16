@@ -47,9 +47,7 @@ export class WorkshopWidgetComponent implements OnInit {
       }
       if (result.isFailure()) {
         const err = result.value;
-        if (err.name === 'Bad request') {
-          this.alert.openSnackBar(err.locale.text);
-        }
+        this.alert.openSnackBar(err.locale.text);
       }
     }
   }

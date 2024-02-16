@@ -23,6 +23,8 @@ export class SubjectBackendApiMock {
       };
       return success(result);
     }
-    throw new Error('Ошибка actionDod.meta.name ');
+    throw new Error(
+      "ответ для ActionDod с именем 'GetCurrentUserActionDod' не реализован",
+    );
   }
 }
