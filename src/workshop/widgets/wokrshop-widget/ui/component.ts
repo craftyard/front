@@ -44,6 +44,7 @@ export class WorkshopWidgetComponent implements OnInit {
       const result = await this.workshopApi.request<FindWorkshopByUserIdServiceParams>(actionDod);
       if (result.isSuccess()) {
         this.workshopData = result.value;
+        console.log(this.workshopData?.employeesRole)
       }
       if (result.isFailure()) {
         const err = result.value;

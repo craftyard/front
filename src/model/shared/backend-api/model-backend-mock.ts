@@ -18,6 +18,7 @@ export class ModelBackendApiMock {
         workshopId: 'a1b2c3d4-e5f6-g7h8-i9j10-k11l12m13n14',
         name: 'Модель 1',
         category: 'Игрушки',
+
       },
       {
         modelId: '2a3b4c5d-6e7f-8g9h-10i11-j12k13l14m15',

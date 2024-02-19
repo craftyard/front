@@ -55,6 +55,7 @@ export class ModelsWidgetComponent implements OnInit {
     GetingWorkshopModelsServiceParams>(actionDod);
     if (modelsResult.isSuccess()) {
       this.workshopModels = modelsResult.value;
+      console.log(this.workshopModels)
     }
   }
 }
