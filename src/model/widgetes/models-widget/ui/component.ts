@@ -19,7 +19,6 @@ export class ModelsWidgetComponent implements OnInit {
 
   workshopModels!: ModelAttrs[];
 
-  // eslint-disable-next-line no-useless-constructor, no-empty-function
   constructor(
     private appState: AppState,
     public dialog: MatDialog,

@@ -10,9 +10,7 @@ export interface ModelCardAttrs {
 export interface WorkId extends ModelCardAttrs {
   modelId: string;
 }
-export interface color extends ModelCardAttrs {
-  color: string
-}
+
 
 @Component({
   selector: 'card-item',
@@ -20,22 +18,25 @@ export interface color extends ModelCardAttrs {
     <ng-container #container></ng-container>
   `,
 })
-export class CardItemComponent<T extends ModelCardAttrs | WorkId | color> implements OnInit {
+export class CardItemComponent<T extends ModelCardAttrs | WorkId > implements OnInit {
   @Input() item!: T;
+  @Input() argument?: string
 
   @ViewChild('container', { read: ViewContainerRef, static: true }) container!: ViewContainerRef;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit() {
-    const isWorkId = 'modelId' in this.item;
-
-    if (isWorkId) {
-      this.createComponent(WorkIdComponent);
-    } else {
-      this.createComponent(ModelCardAttrsComponent);
-    }
+    const arg = this.argument;
     
+    switch(arg) {
+      case 'modelId':
+        this.createComponent(WorkIdComponent);
+        break;
+      default:
+        this.createComponent(ModelCardAttrsComponent);
+        break;
+    }
   }
 
   private createComponent(componentType: Type<any>) {
