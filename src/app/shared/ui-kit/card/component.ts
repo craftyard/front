@@ -1,15 +1,12 @@
 import { Component, Input, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChild, Type } from '@angular/core';
-import { WorkIdComponent } from './card-workID/component';
 import { ModelCardAttrsComponent } from './card-product/component';
 
 export interface ModelCardAttrs {
   name: string;
   category: string;
+  images: string[],
 }
 
-export interface WorkId extends ModelCardAttrs {
-  modelId: string;
-}
 
 
 @Component({
@@ -18,8 +15,8 @@ export interface WorkId extends ModelCardAttrs {
     <ng-container #container></ng-container>
   `,
 })
-export class CardItemComponent<T extends ModelCardAttrs | WorkId > implements OnInit {
-  @Input() item!: T;
+export class CardItemComponent<T extends ModelCardAttrs> implements OnInit {
+  @Input() model!: T;
   @Input() argument?: string
 
   @ViewChild('container', { read: ViewContainerRef, static: true }) container!: ViewContainerRef;
@@ -28,10 +25,9 @@ export class CardItemComponent<T extends ModelCardAttrs | WorkId > implements On
 
   ngOnInit() {
     const arg = this.argument;
-    
     switch(arg) {
-      case 'modelId':
-        this.createComponent(WorkIdComponent);
+      case 'model':
+        this.createComponent(ModelCardAttrsComponent);
         break;
       default:
         this.createComponent(ModelCardAttrsComponent);
@@ -42,8 +38,6 @@ export class CardItemComponent<T extends ModelCardAttrs | WorkId > implements On
   private createComponent(componentType: Type<any>) {
     const factory = this.componentFactoryResolver.resolveComponentFactory(componentType);
     const componentRef = this.container.createComponent(factory);
-
-    // Use type assertion here
-    (componentRef.instance as any).item = this.item;
+    (componentRef.instance as any).model = this.model;
   }
 }

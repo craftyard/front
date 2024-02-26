@@ -31,7 +31,8 @@ import { AppRoutingModule } from './router';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AppState } from './shared/states/app-state';
 import { CardItemComponent } from './shared/ui-kit/card/component';
-
+import { ImgSliderComponent } from './shared/ui-kit/img-slider/component';
+import { ModelCardAttrsComponent } from './shared/ui-kit/card/card-product/component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,8 @@ import { CardItemComponent } from './shared/ui-kit/card/component';
     ErrorPageComponent,
     AlertComponent,
     CardItemComponent,
+    ImgSliderComponent,
+    ModelCardAttrsComponent,
   ],
   imports: [
     CommonModule,
