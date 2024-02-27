@@ -12,10 +12,7 @@ export class ImgSliderComponent implements OnInit {
 
     @Input() width!:number;
 
-
     currentIndex: number = 0;
-
-    dots:string[] = []
 
     appMode: 'mobile' | 'browser' = 'browser'
 
@@ -29,12 +26,9 @@ export class ImgSliderComponent implements OnInit {
       this.appState.appMode$.subscribe((mode)=>{
         this.appMode = mode
       })
-      for(let i = 0; i<this.images.length; i++) {
-      this.dots.push('*')
-      const script = this.document.createElement('script');
+       const script = this.document.createElement('script');
       script.src = 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js';
       this.document.body.appendChild(script);
-      };
     }
     onMouseMove(event: MouseEvent) {
       const pixel = event.clientX - this.elementRef.nativeElement.offsetLeft;
