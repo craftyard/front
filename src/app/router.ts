@@ -15,12 +15,12 @@ const routes: Routes = [
       {
         path: 'myWorkshop',
         loadChildren: () => import('../workshop/module').then((m) => m.WorkshopModule),
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
       },
       {
         path: 'subject',
         loadChildren: () => import('../subject/module').then((m) => m.SubjectModule),
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
       },
       {
         path: 'models',

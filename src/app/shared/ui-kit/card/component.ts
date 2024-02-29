@@ -1,13 +1,14 @@
-import { Component, Input, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChild, Type } from '@angular/core';
+import {
+  Component, Input, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChild, Type,
+} from '@angular/core';
 import { ModelCardAttrsComponent } from './card-product/component';
 
 export interface ModelCardAttrs {
   name: string;
   category: string;
   images: string[],
+  modelId: string,
 }
-
-
 
 @Component({
   selector: 'card-item',
@@ -17,7 +18,8 @@ export interface ModelCardAttrs {
 })
 export class CardItemComponent<T extends ModelCardAttrs> implements OnInit {
   @Input() model!: T;
-  @Input() argument?: string
+
+  @Input() argument?: string;
 
   @ViewChild('container', { read: ViewContainerRef, static: true }) container!: ViewContainerRef;
 
@@ -25,7 +27,7 @@ export class CardItemComponent<T extends ModelCardAttrs> implements OnInit {
 
   ngOnInit() {
     const arg = this.argument;
-    switch(arg) {
+    switch (arg) {
       case 'model':
         this.createComponent(ModelCardAttrsComponent);
         break;

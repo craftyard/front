@@ -1,13 +1,12 @@
-import {  Component, Input } from "@angular/core";
-import { ModelCardAttrs } from "../component";
-
+import { Component, Input } from '@angular/core';
+import { ModelCardAttrs } from '../component';
 
 @Component({
   selector: 'model-card-attrs',
   template: `
     <div id="card">
      <img-slider [images]="model.images" [width]="200"></img-slider>
-      <div id='card-text'>
+      <div id='card-text' routerLink="Model/1">
         <p id='card-title'>{{ model.name }}</p>
         <p id='card-cat'>категория: {{ model.category }}</p>
      </div>
@@ -15,9 +14,6 @@ import { ModelCardAttrs } from "../component";
   `,
   styleUrls: ['../style.css'],
 })
-export class ModelCardAttrsComponent  {
- 
-
+export class ModelCardAttrsComponent {
   @Input() model!: ModelCardAttrs;
-
 }
