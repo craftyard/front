@@ -1,8 +1,9 @@
 <div *ngIf="workshopData" >
     <workshop-entity [workshopData]="workshopData">
     </workshop-entity>
+    {{workshopData.employeesRole}}
     <accordion-component header="Сотрудники">
-        <user-info-entities  [userProfile]="workshopData.employeesRole"></user-info-entities>
+        <workshop-user-profile-entities  [UserAttrs]="workshopData.employeesRole"></workshop-user-profile-entities>
     </accordion-component>
 </div>
 <div *ngIf="!workshopData">

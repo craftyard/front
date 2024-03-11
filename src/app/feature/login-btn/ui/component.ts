@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { TelegramAuthDTO } from 'cy-domain/src/subject/domain-data/user/user-authentification/a-params';
 import { UserAuthentificationActionDod, UserAuthentificationServiceParams } from 'cy-domain/src/subject/domain-data/user/user-authentification/s-params';
 import { Logger } from 'rilata/src/common/logger/logger';
-import { GetCurrentUserActionDod, GetingCurrentUserServiceParams } from 'cy-domain/src/subject/domain-data/user/get-current-user/s-params';
+import { GetCurrentUserActionDod, GettingCurrentUserServiceParams } from 'cy-domain/src/subject/domain-data/user/get-current-user/s-params';
 import { AppState } from '../../../shared/states/app-state';
 import { AlertComponent } from '../../../shared/ui-kit/alert/component';
 import { AngularBackendApi } from '../../../shared/angularBackendApi';
@@ -61,14 +61,14 @@ export class LoginButtonComponent implements AfterContentInit {
           this.appstate.setAccessToken(result.value.accessToken);
           const getСurrentUserActionDod : GetCurrentUserActionDod = {
             meta: {
-              name: 'GetCurrentUser',
+              name: 'getCurrentUser',
               actionId: crypto.randomUUID(),
               domainType: 'action',
             },
             attrs: {},
           };
           const userResult = await this.subjectApi
-            .request<GetingCurrentUserServiceParams>(getСurrentUserActionDod);
+            .request<GettingCurrentUserServiceParams>(getСurrentUserActionDod);
           if (userResult.isSuccess()) {
             this.appstate.setCurrentUser(userResult.value);
           } else {

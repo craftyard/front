@@ -3,7 +3,7 @@ import {
   Component, Input,
 } from '@angular/core';
 import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
-import { WorkshopAttrs } from 'cy-domain/src/workshop/domain-data/workshop/params';
+import { WorkshopOutAttrs } from 'cy-domain/src/workshop/domain-data/workshop/params';
 
 @Component({
   selector: 'workshop-entity',
@@ -12,7 +12,7 @@ import { WorkshopAttrs } from 'cy-domain/src/workshop/domain-data/workshop/param
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WorkshopComponent {
-  @Input() workshopData!: WorkshopAttrs;
+  @Input() workshopData!: WorkshopOutAttrs;
 
   @Input() users!:UserAttrs[];
 }

@@ -30,6 +30,7 @@ import { AlertComponent } from './shared/ui-kit/alert/component';
 import { AppRoutingModule } from './router';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AppState } from './shared/states/app-state';
+import { ImgSliderComponent } from './shared/ui-kit/img-slider/component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AppState } from './shared/states/app-state';
     AccordionComponent,
     ErrorPageComponent,
     AlertComponent,
+    ImgSliderComponent,
   ],
   imports: [
     CommonModule,
@@ -76,6 +78,7 @@ import { AppState } from './shared/states/app-state';
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
+    ImgSliderComponent,
   ],
 })
 export class AppModule { }

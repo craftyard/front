@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WorkshopComponent } from './entities/workshop/component';
 import { WorkshopWidgetComponent } from './widgets/wokrshop-widget/ui/component';
-import { UserProfileComponent } from './entities/user/ui/component';
+import { WorkshopUserProfileComponent } from './entities/user/ui/component';
 import { WorkshopRoutingModule } from './router';
 import { AppModule } from '../app/module';
 
@@ -10,7 +10,7 @@ import { AppModule } from '../app/module';
   declarations: [
     WorkshopComponent,
     WorkshopWidgetComponent,
-    UserProfileComponent,
+    WorkshopUserProfileComponent,
   ],
   imports: [
     CommonModule,

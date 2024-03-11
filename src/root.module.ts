@@ -11,8 +11,9 @@ import { SubjectApi } from './subject/shared/backend-api/subject-api.service';
 import { DomainModuleState } from './app/shared/states/domain-module-state';
 import { WorkShopModuleState } from './workshop/module-state';
 import { SubjectModuleState } from './subject/module-state';
-import { SubjectBackendApiMock } from './subject/shared/backend-api/subject-backend-mock';
+import { SubjectBackendApiMock } from './subject/shared/backend-api/backend-api[-mock]';
 import { ModelModuleState } from './model/module-state';
+import { ModelBackendApiMock } from './model/shared/backend-api/backend-api[-mock]';
 
 const domainModuleStates: DomainModuleState[] = [
   new WorkShopModuleState(),
@@ -37,6 +38,9 @@ const domainModuleStates: DomainModuleState[] = [
     },
     {
       provide: 'subjectApi', useClass: SubjectBackendApiMock,
+    },
+    {
+      provide: 'modelApi', useClass: ModelBackendApiMock,
     },
     {
       provide: 'domainModuleStates', useValue: domainModuleStates,

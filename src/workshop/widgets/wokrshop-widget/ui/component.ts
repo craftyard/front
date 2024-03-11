@@ -1,8 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-
-import { UserAttrs } from 'cy-domain/src/subject/domain-data/user/params';
 import { WorkshopOutAttrs } from 'cy-domain/src/workshop/domain-data/workshop/params';
 import { FindWorkshopByUserIdActionDod, FindWorkshopByUserIdServiceParams } from 'cy-domain/src/workshop/domain-data/workshop/find-workshop-by-user-id/s-params';
 import { WorkshopApi } from '../../../shared/backend-api/workshop-api.service';

@@ -1,15 +1,11 @@
 <div id="menu_title">
     <h1>Model</h1>
-    <button *ngIf="appMode === 'browser'" mat-flat-button color="primary" (click)="openDialog()" >Добавить модель</button>
+    <add-model-btn *ngIf="appMode === 'browser'" mat></add-model-btn>
 </div>
-<h1 style="margin-bottom: 35px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ducimus hic quos exercitationem sequi doloremque commodi porro nemo ea iusto rerum, omnis dolor alias est iste nulla cupiditate. Ipsum, unde?
-Delectus voluptates quam illum alias voluptate maiores laboriosam natus ipsam sit, sapiente ea rerum illo mollitia quod odio officia facere voluptas, tempora magni sed consequatur nihil hic! Adipisci, tempora ipsa!
-</h1>
-    <button   
-    id="mobile-btn" 
-    *ngIf="appMode === 'mobile'" 
-    mat-flat-button color="primary"
-    (click)="openDialog()" 
-     >
-     Добавить модель
-    </button>
+<div style="margin-bottom: 35px;">
+   <div class="models">
+        <model-card-attrs  *ngFor="let model of workshopModels"  [workshopModels]="model"></model-card-attrs>
+   </div>
+</div>
+<add-model-btn id="mobile-btn" 
+*ngIf="appMode === 'mobile'" ></add-model-btn>

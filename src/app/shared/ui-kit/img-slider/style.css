@@ -1,0 +1,17 @@
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+.dot {
+    margin-top: 10px;
+    background-color: #222;
+    border-radius: 8px;
+    height: 8px;
+    width: 8px;
+    opacity: .4;
+}
+
+.current-dot {
+    background-color: #222;
+    opacity: 1;
+}
