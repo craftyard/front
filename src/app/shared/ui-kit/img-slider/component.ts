@@ -1,5 +1,7 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, ElementRef, Inject, Input, OnInit } from '@angular/core';
+import {
+  Component, ElementRef, Inject, Input, OnInit,
+} from '@angular/core';
 import { AppState } from '../../states/app-state';
 
 @Component({
@@ -14,30 +16,32 @@ export class ImgSliderComponent implements OnInit {
 
     currentIndex: number = 0;
 
-    appMode: 'mobile' | 'browser' = 'browser'
+    appMode: 'mobile' | 'browser' = 'browser';
 
     constructor(
       private elementRef: ElementRef,
-      @Inject(DOCUMENT) private document: Document,
-      private appState: AppState
-       ) {
+      private appState: AppState,
+    ) {
     }
+
     ngOnInit(): void {
-      this.appState.appMode$.subscribe((mode)=>{
-        this.appMode = mode
-      })
-       const script = this.document.createElement('script');
-      script.src = 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js';
-      this.document.body.appendChild(script);
+      this.appState.appMode$.subscribe((mode) => {
+        this.appMode = mode;
+      });
+      if (this.images.length === 0) {
+        this.images.push('../../../../assets/model-default-image.jpg');
+      }
     }
+
     onMouseMove(event: MouseEvent) {
-      const pixel = event.clientX - this.elementRef.nativeElement.offsetLeft;
-      const percent = Math.round((100 * pixel) / this.width);
-      const imgLength = this.images.length - 1;
-      const img = Math.round((imgLength * percent) / 100);
-      this.currentIndex = img;
+      const leftOffsetOfPixel = event.clientX - this.elementRef.nativeElement.offsetLeft;
+      const leftOffsetOfPersent = Math.round((100 * leftOffsetOfPixel) / this.width);
+      const lastIndex = this.images.length - 1;
+      const showedImgIndex = Math.round((lastIndex * leftOffsetOfPersent) / 100);
+      this.currentIndex = showedImgIndex;
     }
-    cnageImageDot(id:number) {
-      this.currentIndex = id
-  }
+
+    changeImage(id:number) {
+      this.currentIndex = id;
+    }
 }

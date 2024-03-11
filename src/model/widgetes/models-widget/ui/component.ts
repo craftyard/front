@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { GetWorkshopModelsActionDod, GetingWorkshopModelsServiceParams } from 'cy-domain/src/model/domain-data/model/get-models/s-params';
 import { ModelAttrs } from 'cy-domain/src/model/domain-data/params';
-import { ModelBackendApiMock } from '../../../shared/backend-api/model-backend-mock';
+import { DOCUMENT } from '@angular/common';
 import { AddModelComponent } from '../../../feature/add-model/ui/component';
 import { AppState } from '../../../../app/shared/states/app-state';
 import { AlertComponent } from '../../../../app/shared/ui-kit/alert/component';
+import { AngularBackendApi } from '../../../../app/shared/angularBackendApi';
 
 @Component({
   selector: 'models-widget',
@@ -22,8 +23,9 @@ export class ModelsWidgetComponent implements OnInit {
   constructor(
     private appState: AppState,
     public dialog: MatDialog,
-    private mockModelApi:ModelBackendApiMock,
+    @Inject('modelApi') private modelApi:AngularBackendApi,
     private alert: AlertComponent,
+    @Inject(DOCUMENT) private document: Document,
   ) { }
 
   openDialog() {
@@ -50,11 +52,17 @@ export class ModelsWidgetComponent implements OnInit {
         workshopId: this.workshopId,
       },
     };
-    const modelsResult = await this.mockModelApi.request<
+    const modelsResult = await this.modelApi.request<
     GetingWorkshopModelsServiceParams>(actionDod);
     if (modelsResult.isSuccess()) {
       this.workshopModels = modelsResult.value;
-      console.log(this.workshopModels)
     }
+    if (modelsResult.isFailure()) {
+      const err = modelsResult.value;
+      this.alert.openSnackBar(err.locale.text);
+    }
+    const script = this.document.createElement('script');
+    script.src = 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js';
+    this.document.body.appendChild(script);
   }
 }

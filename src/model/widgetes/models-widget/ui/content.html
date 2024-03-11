@@ -1,16 +1,11 @@
 <div id="menu_title">
     <h1>Model</h1>
-    <button *ngIf="appMode === 'browser'" mat-flat-button color="primary" (click)="openDialog()" >Добавить модель</button>
+    <add-model-btn *ngIf="appMode === 'browser'" mat></add-model-btn>
 </div>
 <div style="margin-bottom: 35px;">
-   <div class="card-block" >
-        <card-item *ngFor="let model of workshopModels" [model]="model"  argument="model"></card-item>
+   <div class="models">
+        <model-card-attrs  *ngFor="let model of workshopModels"  [workshopModels]="model"></model-card-attrs>
    </div>
 </div>
-<button   
-id="mobile-btn" 
-*ngIf="appMode === 'mobile'" 
-mat-flat-button color="primary"
-(click)="openDialog()">
-    Добавить модель
-</button>
+<add-model-btn id="mobile-btn" 
+*ngIf="appMode === 'mobile'" ></add-model-btn>

@@ -2,7 +2,7 @@
     <img [src]="images[currentIndex]" (mousemove)="onMouseMove($event)" alt="Current Image" />
     <div style="display: flex; justify-content: space-evenly;">
         <div class="dot" *ngFor="let item of images;  
-            let i = index" (click)="cnageImageDot(i)" [ngClass]="{'current-dot': i === currentIndex}">
+            let i = index" (click)="changeImage(i)" [ngClass]="{'current-dot': i === currentIndex}">
         </div>
     </div>
 </div>
