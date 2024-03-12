@@ -25,7 +25,7 @@ const routes: Routes = [
       {
         path: 'models',
         loadChildren: () => import('../model/module').then((m) => m.ModelModule),
-        // canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
       },
     ],
   },

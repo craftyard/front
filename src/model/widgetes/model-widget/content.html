@@ -1,0 +1,42 @@
+<div *ngIf="apMode === 'browser';else mobile" id="model-content">
+    <div id="model-img">
+        <div id="img-content">
+            <div>
+                <img id="model-img-list" *ngFor="let img of imgs; let i = index" [src]="img"
+                    [class.selected-img]="i === selectedImgIndex" (click)="changeImage(i)">
+            </div>
+            <div id="model-main-img">
+                <img id="model-main-img-style" *ngIf="selectedImgIndex !== null" [src]="imgs[selectedImgIndex]" alt="">
+            </div>
+        </div>
+        <div id="model-text" *ngIf="apMode === 'browser'">
+            <h1 id="model-name">Модель 1</h1>
+            <h3 id="model-desc">О товаре</h3>
+            <div class="model-grid">
+                <div class="desc-text">Категория</div>
+                <div class="desc-value">Игрушка</div>
+            </div>
+            <div class="model-grid">
+                <div class="desc-text">Название</div>
+                <div class="desc-value">Модель 1</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #mobile>
+    <img-slider [images]="imgs"></img-slider>
+    <div class="model-content">
+        <h1 id="model-name">Модель 1</h1>
+        <h3 id="model-desc">О товаре</h3>
+        <div class="model-grid">
+            <div class="desc-text">Название</div>
+            <div class="desc-value">Модель 1</div>
+        </div>
+        <div class="model-grid">
+            <div class="desc-text">Категория</div>
+            <div class="desc-value">Игрушка</div>
+        </div>
+    </div>
+</ng-template>
