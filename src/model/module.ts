@@ -6,6 +6,7 @@ import { ModuleRoutingModule } from './router';
 import { AddModelComponent } from './feature/add-model/ui/component';
 import { AddModelBtnComponent } from './feature/add-model-btn/component';
 import { ModelCardAttrsComponent } from './entities/model-card/component';
+import { ModelWidgetComponent } from './widgetes/model-widget/component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ModelCardAttrsComponent } from './entities/model-card/component';
     AddModelComponent,
     AddModelBtnComponent,
     ModelCardAttrsComponent,
+    ModelWidgetComponent,
   ],
   imports: [
     CommonModule,
